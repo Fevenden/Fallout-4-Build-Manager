@@ -5,7 +5,9 @@ import './Nav.css'
 export default function Nav() {
   return (
     <header>
-      <h1>Fallout 4 Build Manager</h1>
+      <Link to='/'>
+        <h1>Fallout 4 Build Manager</h1>
+      </Link>
       <nav>
         <Link to='#'>login</Link>
         <span>/</span>
