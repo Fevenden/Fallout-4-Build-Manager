@@ -1,10 +1,16 @@
-import React from 'react';
+import React from 'react'
+import Nav from './Nav/Nav'
+import Landing from './Landing/Landing'
+import './App.css'
 
 function App() {
   return (
-    <main className='App'>
-      {/* content goes here */}
-    </main>
+    <div class='app'>
+      <Nav />
+      <main className='App'>
+        <Landing />
+      </main>
+    </div>
   );
 }
 
