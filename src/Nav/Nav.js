@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Nav.css'
 
 export default function Nav() {
@@ -6,9 +7,9 @@ export default function Nav() {
     <header>
       <h1>Fallout 4 Build Manager</h1>
       <nav>
-        <a href="#">login</a>
+        <Link to='#'>login</Link>
         <span>/</span>
-        <a href="#">logout</a>
+        <Link to='#'>logout</Link>
       </nav>
     </header>
   )

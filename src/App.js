@@ -9,7 +9,10 @@ function App() {
     <div class='app'>
       <Nav />
       <main className='App'>
-        <Landing />
+        <Route 
+          exact path='/'
+          component={Landing}
+        />
       </main>
     </div>
   );
