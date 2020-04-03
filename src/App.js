@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import Nav from './Nav/Nav'
 import Landing from './Landing/Landing'
 import BuildForm from './BuildForm/BuildForm'
+import CreateAccount from './CreateAccount/CreateAccount'
 import './App.css'
 
 function App() {
@@ -17,6 +18,10 @@ function App() {
         <Route
           path='/build-form'
           component={BuildForm} 
+        />
+        <Route
+          path='/create-account'
+          component={CreateAccount}
         />
       </main>
     </div>

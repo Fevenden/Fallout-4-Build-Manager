@@ -6,7 +6,7 @@ export default function BuildForm() {
   const statInputs = stats.map(stat => {
     return (
       <div className='stat-input'>
-        <label for={stat.toLowerCase()}>{stat}:</label>
+        <label htmlFor={stat.toLowerCase()}>{stat}:</label>
         <input type='number' id={stat.toLowerCase()} name={stat.toLowerCase()} min='1' max ='10' defaultValue='1' required />
       </div>
     )
@@ -24,6 +24,7 @@ export default function BuildForm() {
         </fieldset>
         <fieldset id='perks'>
           <legend>Perks</legend>
+          {/* To Do: Create Perks */}
           <h2>PERKS WILL GO HERE</h2>
         </fieldset>
       </form>
