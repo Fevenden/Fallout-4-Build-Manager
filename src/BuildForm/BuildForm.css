@@ -1,0 +1,15 @@
+.stat-input {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#build-form {
+  display: flex;
+  flex-direction: column;
+}
