@@ -69,7 +69,11 @@ class App extends React.Component {
             />
             <Route
               path='/builds/:id'
-              component={ViewBuild}
+              render={ () => 
+                <ViewBuild 
+                  builds={this.state.builds}
+                />
+              }
             />
           </main>
         </Context.Provider>

@@ -1,12 +1,20 @@
 import React from 'react'
 import Build from '../Build/Build'
-import Context from '../context'
+import { withRouter } from 'react-router-dom'
 import './ViewBuild.css'
 
-export default class ViewBuild extends React.Component {
-  render() {
+function ViewBuild(props) {
+  const builds = props.builds.filter(build => 
+    build.id === props.match.params.id
+  );
+
+  return builds.map(b => {
     return (
-      <h2>hello world!</h2>
+      <section className='buildView'>
+        <Build build={b}/>
+      </section>
     )
-  }
+  })
 }
+
+export default withRouter(ViewBuild)
