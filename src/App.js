@@ -4,6 +4,7 @@ import Nav from './Nav/Nav'
 import Landing from './Landing/Landing'
 import BuildForm from './BuildForm/BuildForm'
 import CreateAccount from './CreateAccount/CreateAccount'
+import Login from './Login/Login'
 import './App.css'
 
 class App extends React.Component {
@@ -30,6 +31,10 @@ class App extends React.Component {
           <Route
             path='/create-account'
             component={CreateAccount}
+          />
+          <Route
+            path='/login'
+            component={Login}
           />
         </main>
       </div>

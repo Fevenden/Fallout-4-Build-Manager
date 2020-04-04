@@ -9,7 +9,7 @@ export default function Nav() {
         <h1>Fallout 4 Build Manager</h1>
       </Link>
       <nav>
-        <Link to='#'>login</Link>
+        <Link to='/login'>login</Link>
         <span>/</span>
         <Link to='#'>logout</Link>
       </nav>
