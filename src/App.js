@@ -6,6 +6,7 @@ import BuildForm from './BuildForm/BuildForm'
 import CreateAccount from './CreateAccount/CreateAccount'
 import Login from './Login/Login'
 import ListBuild from './Listbuild/ListBuild'
+import ViewBuild from './ViewBuild/ViewBuild'
 import store from './dummy-store'
 import Context from './context'
 import './App.css'
@@ -59,10 +60,13 @@ class App extends React.Component {
               component={Login}
             />
             <Route
-              path='/listbuilds'
+              exact path='/builds'
               component={ListBuild}
             />
-
+            <Route
+              path='/builds/:id'
+              component={ViewBuild}
+            />
           </main>
         </Context.Provider>
       </div>

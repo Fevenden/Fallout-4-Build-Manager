@@ -1,5 +1,7 @@
 import React from 'react'
 import Context from '../context'
+import { Link } from 'react-router-dom'
+import Build from '../Build/Build'
 import './ListBuild.css'
 
 export default class ListBuild extends React.Component {
@@ -14,7 +16,7 @@ export default class ListBuild extends React.Component {
           {builds.map(build => {
             return (
               <li key={build.id}>
-                <h3>Build</h3>
+               <Link to={`/builds/${build.id}`}> {build.title}</Link>
               </li>
             )
           })}
