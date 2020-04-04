@@ -24,7 +24,7 @@ class App extends React.Component {
       this.setState({
         builds: store.builds
       })
-    }, 3000)
+    }, 1000)
   }
 
   render() {
@@ -61,7 +61,11 @@ class App extends React.Component {
             />
             <Route
               exact path='/builds'
-              component={ListBuild}
+              render={ () =>
+                <ListBuild 
+                  builds={this.state.builds}
+                />
+              }
             />
             <Route
               path='/builds/:id'
