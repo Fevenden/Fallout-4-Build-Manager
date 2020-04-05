@@ -1,0 +1,16 @@
+.build-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.build-box  li {
+    list-style: none;
+}
+
+.build-box ul {
+    padding: 0;
+}
+
+.container {
+    max-width: 850px
+}
