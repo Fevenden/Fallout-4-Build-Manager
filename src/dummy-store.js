@@ -1,178 +1,181 @@
 export default {
-  "users": [
+  users: [
     {
-      "id": 1,
-      "username": "McLovin",
-      "first_name": "Fogell",
-      "last_name": "Smith",
-      "email": "immclovinit@email.com",
-      "password": "superbad"
+      id: 1,
+      username: "McLovin",
+      first_name: "Fogell",
+      last_name: "Smith",
+      email: "immclovinit@email.com",
+      password: "superbad"
     },
     {
-      "id": 2,
-      "username": "Superman",
-      "first_name": "Clark",
-      "last_name": "Kent",
-      "email": "justanormaldude@email.com",
-      "password": "kryptonite"
+      id: 2,
+      username: "Superman",
+      first_name: "Clark",
+      last_name: "Kent",
+      email: "justanormaldude@email.com",
+      password: "kryptonite"
     },
     {
-      "id": 3,
-      "username": "Actualy_A_Targaryn",
-      "first_name": "Jon",
-      "last_name": "Snow",
-      "email": "youknownothing@email.com",
-      "password": "ygritte"
+      id: 3,
+      username: "Actualy_A_Targaryn",
+      first_name: "Jon",
+      last_name: "Snow",
+      email: "youknownothing@email.com",
+      password: "ygritte"
     }
   ],
   
-  "builds": [
+  builds: [
     {
-      "id": 1,
-      "user_id": 2,
-      "title": "Build 1",
-      "stats": [
+      id: 1,
+      user_id: 2,
+      title: "Build 1",
+      stats: [
         {
-          "stat-name": "strength",
-          "value": 1 
+          title: "strength",
+          value: 1 
         },
         {
-          "stat-name": "perception",
-          "value": 1
+          title: "perception",
+          value: 1
         },
         {
-          "stat-name": "endurance",
-          "value": 1
+          title: "endurance",
+          value: 1
         },
         {
-          "stat-name": "charisma",
-          "value": 1
+          title: "charisma",
+          value: 1
         },
         {
-          "stat-name": "intelligence",
-          "value": 1
+          title: "intelligence",
+          value: 1
         },
         {
-          "stat-name": "agility",
-          "value": 1
+          title: "agility",
+          value: 1
         },
         {
-          "stat-name": "luck",
-          "value": 1
+          title: "luck",
+          value: 1
         }
       ],
-      "perks": ["perk1", "perk2", "perk3"]
+      perks: ["perk1", "perk2", "perk3"],
+      description: 'Maecenas mauris felis, efficitur nec justo quis, condimentum blandit quam. Nunc quis enim eget quam maximus pharetra non id tellus. Aliquam vel bibendum nisl, vel dapibus leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.'
     },
     {
-      "id": 2,
-      "user_id": 3,
-      "title": "Build 2",
-      "stats": [
+      id: 2,
+      user_id: 3,
+      title: "Build 2",
+      stats: [
         {
-          "stat-name": "strength",
-          "value": 2
+          title: "strength",
+          value: 2
         },
         {
-          "stat-name": "perception",
-          "value": 2
+          title: "perception",
+          value: 2
         },
         {
-          "stat-name": "endurance",
-          "value": 2
+          title: "endurance",
+          value: 2
         },
         {
-          "stat-name": "charisma",
-          "value": 2
+          title: "charisma",
+          value: 2
         },
         {
-          "stat-name": "intelligence",
-          "value": 2
+          title: "intelligence",
+          value: 2
         },
         {
-          "stat-name": "agility",
-          "value": 2
+          title: "agility",
+          value: 2
         },
         {
-          "stat-name": "luck",
-          "value": 2
+          title: "luck",
+          value: 2
         }
       ],
-      "perks": ["perk1", "perk2", "perk3"]
+      perks: ["perk1", "perk2", "perk3"],
+      description: 'Maecenas mauris felis, efficitur nec justo quis, condimentum blandit quam. Nunc quis enim eget quam maximus pharetra non id tellus. Aliquam vel bibendum nisl, vel dapibus leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.'
     },
     {
-      "id": 3,
-      "user_id": 1,
-      "title": "Build 3",
-      "stats": [
+      id: 3,
+      user_id: 1,
+      title: "Build 3",
+      stats: [
         {
-          "stat-name": "strength",
-          "value": 3
+          title: "strength",
+          value: 3
         },
         {
-          "stat-name": "perception",
-          "value": 3
+          title: "perception",
+          value: 3
         },
         {
-          "stat-name": "endurance",
-          "value": 3
+          title: "endurance",
+          value: 3
         },
         {
-          "stat-name": "charisma",
-          "value": 3
+          title: "charisma",
+          value: 3
         },
         {
-          "stat-name": "intelligence",
-          "value": 3
+          title: "intelligence",
+          value: 3
         },
         {
-          "stat-name": "agility",
-          "value": 3
+          title: "agility",
+          vlaue: 3
         },
         {
-          "stat-name": "luck",
-          "value": 3
+          title: "luck",
+          value: 3
         }
       ],
-      "perks": ["perk1"]
+      perks: ["perk1"],
+      description: 'Maecenas mauris felis, efficitur nec justo quis, condimentum blandit quam. Nunc quis enim eget quam maximus pharetra non id tellus. Aliquam vel bibendum nisl, vel dapibus leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.'
     }
   ],
 
-  "perks": [
+  perks: [
     {
       special: 'st',
       perks: [
           {
-              rank: 1,
-              name: 'Iron Fist',
-              img: 'iron-fist.png',
-              ranks: 5,
-              ranked: [
-                  {
-                      rank: 1,
-                      level: 0,
-                      description: 'Channel your chi to unleash devastating fury! Punching attacks now do 20% more damage.'
-                  },
-                  {
-                      rank: 2,
-                      level: 9,
-                      description: 'Punching attacks now do 40% more damage and can disarm your opponent.'
-                  },
-                  {
-                      rank: 3,
-                      level: 18,
-                      description: 'Punching attacks now do 60% more damage. Unarmed Power Attacks have a chance to cripple one of your opponent\'s limbs.'
-                  },
-                  {
-                      rank: 4,
-                      level: 31,
-                      description: 'Attacks made with fists or weapons worn on the hands 80% more damage. Unarmed Power Attacks have an increased chance to cripple one of your opponent\'s limbs.'
-                  },
-                  {
-                      rank: 5,
-                      level: 46,
-                      description: 'Attacks made with fists or weapons worn on the hands inflict 100% more damage. Criticals in V.A.T.S. will paralyse your opponents.'
-                  }
-              ]
+            rank: 1,
+            name: 'Iron Fist',
+            img: 'iron-fist.png',
+            ranks: 5,
+            ranked: [
+              {
+                rank: 1,
+                level: 0,
+                description: 'Channel your chi to unleash devastating fury! Punching attacks now do 20% more damage.'
+              },
+              {
+                rank: 2,
+                level: 9,
+                description: 'Punching attacks now do 40% more damage and can disarm your opponent.'
+              },
+              {
+                rank: 3,
+                level: 18,
+                description: 'Punching attacks now do 60% more damage. Unarmed Power Attacks have a chance to cripple one of your opponent\'s limbs.'
+              },
+              {
+                rank: 4,
+                level: 31,
+                description: 'Attacks made with fists or weapons worn on the hands 80% more damage. Unarmed Power Attacks have an increased chance to cripple one of your opponent\'s limbs.'
+              },
+              {
+                rank: 5,
+                level: 46,
+                description: 'Attacks made with fists or weapons worn on the hands inflict 100% more damage. Criticals in V.A.T.S. will paralyse your opponents.'
+              }
+            ]
           },
           {
               rank: 2,

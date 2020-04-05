@@ -16,7 +16,7 @@ export default function BuildForm() {
     <section className='form-box'>
       <h2>Create Build</h2>
       <form id='build-form'>
-        <label for='title'>Build Title:</label>
+        <label htmlFor='title'>Build Title:</label>
         <input type='text' id='title' name='title' required />
         <fieldset id='stats'>
           <legend>Stats</legend>

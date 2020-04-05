@@ -9,7 +9,7 @@ export default function ListBuild(props) {
       <ul>
         {props.builds.map(build => {
           return (
-            <li key={build.id}>
+            <li key={`${build.id}`}>
               <Link to={`/builds/${build.id}`}> {build.title}</Link>
             </li>
           )
@@ -17,4 +17,8 @@ export default function ListBuild(props) {
       </ul>
     </section>
   )
+}
+
+ListBuild.defaultProps = {
+  builds: []
 }

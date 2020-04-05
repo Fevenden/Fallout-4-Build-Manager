@@ -40,7 +40,7 @@ class App extends React.Component {
     }
     return (
       <div className='app'>
-        <Nav />
+        <Nav builds={this.state.builds} />
         <Context.Provider value={contextValue}>
           <main className='App'>
             <Route 
@@ -59,20 +59,16 @@ class App extends React.Component {
               path='/login'
               component={Login}
             />
-            <Route
-              exact path='/builds'
-              render={ () =>
-                <ListBuild 
-                  builds={this.state.builds}
-                />
-              }
+            <Route 
+            exact path='/builds'
+            render = {() => 
+              <ListBuild builds={this.state.builds} />
+            }
             />
             <Route
               path='/builds/:id'
-              render={ () => 
-                <ViewBuild 
-                  builds={this.state.builds}
-                />
+              render={() => 
+                <ViewBuild builds={this.state.builds}/>
               }
             />
           </main>

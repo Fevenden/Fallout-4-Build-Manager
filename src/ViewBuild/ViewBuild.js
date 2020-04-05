@@ -4,17 +4,23 @@ import { withRouter } from 'react-router-dom'
 import './ViewBuild.css'
 
 function ViewBuild(props) {
+  console.log(props.match.params.id)
   const builds = props.builds.filter(build => 
-    build.id === props.match.params.id
-  );
+    build.id === parseInt(props.match.params.id)
+  )
 
-  return builds.map(b => {
-    return (
+  return builds.map(build => 
+   (
       <section className='buildView'>
-        <Build build={b}/>
+        <Build build={build}/>
+        <p>{build.description}</p>
       </section>
     )
-  })
+  ) 
+}
+
+ViewBuild.defaultProps = {
+  builds: []
 }
 
 export default withRouter(ViewBuild)
