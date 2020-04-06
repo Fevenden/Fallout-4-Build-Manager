@@ -45,6 +45,7 @@ class App extends React.Component {
   render() {
     const contextValue = {
       active_user: this.state.active_user,
+      users: this.state.users,
       builds: this.state.builds,
       stats: this.state.stats,
       perks: this.state.perks,

@@ -1,7 +1,8 @@
 import React from 'react'
 
 const Context = React.createContext({
-  user: [],
+  active_user: {},
+  users: [],
   builds: [],
   stats: [],
   perks: [],

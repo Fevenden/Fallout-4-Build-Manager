@@ -1,22 +1,109 @@
 import React from 'react'
 import './Login.css'
+import Context from '../context'
 
-export default function Login() {
-  return (
-    <section className='box'>
-      <h2>Login</h2>
-      <form id='login-form'>
-        <label htmlFor='login-username'>Username</label>
-        <input type='text' id='login-username' required />
+class Login extends React.Component {
+  static contextType = Context
 
-        <label htmlFor='login-password'>Password</label>
-        <input type='password' id='login-password' required />
+  state = {
+    username: {
+      value: '',
+      touched: false
+    },
+    password: {
+      value: '',
+      touched: false
+    },
+    err: null
+  }
 
-        <div>
-          <button>Cancel</button>
-          <button>Login</button>
-        </div>
-      </form>
-    </section>
-  )
+  updateUsername(username) {
+    this.setState({
+      username: {
+        value: username,
+        touched: true
+      }
+    })
+  }
+
+  updatePassword(password) {
+    this.setState({
+      password: {
+        value: password,
+        touched: true
+      }
+    })
+  }
+
+  validatePassword = (userPassword, password) => {
+    if(userPassword !== password) {
+      return this.setState({
+        err: 'Username or password incorrect, try again'
+      }).end()
+    } else {
+      return this.setState({
+        err: null
+      })
+    }
+  }
+
+  clickLogin(e) {
+    e.preventDefault()
+    const { username, password } = this.state
+    const users = this.context.users.filter(user => 
+      user.username === username.value
+    )
+    const user = users[0]
+
+    console.log(users)
+    
+    if (user === undefined) {
+      return this.setState({
+        err: 'Username or password incorrect, try again'
+      })
+    }
+
+    this.validatePassword(user.password, password.value)
+
+    if(this.state.err === null) {
+      this.context.setActiveUser(user)
+      this.props.history.push(`/${user.id}/builds`)
+    }
+  }
+
+
+  render() {
+    return (
+      <section className='box'>
+        <h2>Login</h2>
+        <p>{this.state.err}</p>
+        <form id='login-form'>
+          <label htmlFor='login-username'>Username</label>
+          <input 
+            type='text' 
+            id='login-username' 
+            placeholder='Username'
+            onChange={e => this.updateUsername(e.target.value)}
+            required 
+          />
+
+          <label htmlFor='login-password'>Password</label>
+          <input 
+            type='password' 
+            id='login-password' 
+            placeholder='password'
+            onChange={e => this.updatePassword(e.target.value)}  
+            required 
+          />
+
+          <div>
+            <button>Cancel</button>
+            <button onClick={e => this.clickLogin(e)}>Login</button>
+          </div>
+        </form>
+      </section>
+    )
+  }
 }
+
+export default Login
