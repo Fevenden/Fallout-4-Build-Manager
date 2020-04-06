@@ -36,6 +36,12 @@ class App extends React.Component {
     })
   }
 
+  addBuild = (build) => {
+    this.setState({
+      builds: [...this.state.builds, build]
+    })
+  }
+
   setActiveUser = (user) => {
     this.setState({
       active_user: user
@@ -49,7 +55,7 @@ class App extends React.Component {
       builds: this.state.builds,
       stats: this.state.stats,
       perks: this.state.perks,
-      addBuild: () => {},
+      addBuild: this.addBuild,
       setActiveUser: this.setActiveUser,
       addUser: this.addUser,
       deleteBuild: () => {},
