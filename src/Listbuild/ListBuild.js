@@ -19,7 +19,7 @@ export default function ListBuild(props) {
           : builds.map(build => {
             return (
               <li key={`${build.id}`}>
-                <Link to={`/builds/${build.id}`}> {build.title}</Link>
+                <Link to={`/${build.user_id}/builds/${build.id}`}> {build.title}</Link>
               </li>
             )
         })}

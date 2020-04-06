@@ -39,7 +39,7 @@ class Login extends React.Component {
     if(userPassword !== password) {
       return this.setState({
         err: 'Username or password incorrect, try again'
-      }).end()
+      })
     } else {
       return this.setState({
         err: null
@@ -54,22 +54,34 @@ class Login extends React.Component {
       user.username === username.value
     )
     const user = users[0]
-
-    console.log(users)
     
     if (user === undefined) {
       return this.setState({
         err: 'Username or password incorrect, try again'
       })
+    } else {
+      this.setState({
+        err: null
+      })
     }
 
-    this.validatePassword(user.password, password.value)
+    if (user.password !== password.value) {
+      return this.setState({
+        err: 'Username or password incorrect, try again'
+      }) 
+    } else {
+       this.setState({
+        err: null
+      })
+    }
 
     if(this.state.err === null) {
       this.context.setActiveUser(user)
       this.props.history.push(`/${user.id}/builds`)
     }
   }
+
+  
 
 
   render() {
