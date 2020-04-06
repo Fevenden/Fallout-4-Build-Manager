@@ -32,5 +32,12 @@ export default function ListBuild(props) {
 }
 
 ListBuild.defaultProps = {
-  builds: []
+  builds: [],
+  routeProps: {
+    match: {
+      params: {
+        user_id: ''
+      }
+    }
+  }
 }
