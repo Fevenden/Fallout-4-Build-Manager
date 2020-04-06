@@ -6,6 +6,7 @@ const Context = React.createContext({
   stats: [],
   perks: [],
   addBuild: () => {},
+  setActiveUser: () => {},
   addUser: () => {},
   deleteBuild: () => {},
   deleteUser: () => {}

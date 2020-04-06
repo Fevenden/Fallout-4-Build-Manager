@@ -142,7 +142,7 @@ export default {
 
   perks: [
     {
-      special: 'st',
+      stat: 'strength',
       perks: [
           {
             rank: 1,
@@ -427,7 +427,7 @@ export default {
       ]
   },
   {
-      special: 'pe',
+      stat: 'perception',
       perks: [
           {
               rank: 1,
@@ -687,7 +687,7 @@ export default {
       ]
   },
   {
-      special: 'en',
+      stat: 'endurance',
       perks: [
           {
               rank: 1,
@@ -932,7 +932,7 @@ export default {
       ]
   },
   {
-      special: 'ch',
+      stat: 'charisma',
       perks: [
           {
               rank: 1,
@@ -1172,7 +1172,7 @@ export default {
       ]
   },
   {
-      special: 'in',
+      stat: 'intelligence',
       perks: [
           {
               rank: 1,
@@ -1427,7 +1427,7 @@ export default {
       ]
   },
   {
-      special: 'ag',
+      stat: 'agility',
       perks: [
           {
               rank: 1,
@@ -1687,7 +1687,7 @@ export default {
       ]
   },
   {
-      special: 'lu',
+      stat: 'luck',
       perks: [
           {
               rank: 1,

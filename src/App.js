@@ -13,28 +13,44 @@ import './App.css'
 
 class App extends React.Component {
   state = {
-    user: [],
+    active_user: {},
+    users: [],
     builds: [],
-    stats: [],
     perks: [],
   }
 
   componentDidMount() {
+    //simulate api call
     setTimeout(() => {
       this.setState({
-        builds: store.builds
+        builds: store.builds,
+        users: store.users,
+        perks: store.perks
       })
     }, 1000)
   }
 
+  addUser = (user) => {
+    this.setState({
+      users: [...this.state.users, user]
+    })
+  }
+
+  setActiveUser = (user) => {
+    this.setState({
+      active_user: user
+    })
+  }
+
   render() {
     const contextValue = {
-      user: this.state.user,
+      active_user: this.state.active_user,
       builds: this.state.builds,
       stats: this.state.stats,
       perks: this.state.perks,
       addBuild: () => {},
-      addUser: () => {},
+      setActiveUser: this.setActiveUser,
+      addUser: this.addUser,
       deleteBuild: () => {},
       deleteUser: () => {}
     }
@@ -60,13 +76,13 @@ class App extends React.Component {
               component={Login}
             />
             <Route 
-            exact path='/builds'
-            render = {() => 
-              <ListBuild builds={this.state.builds} />
+            exact path='/:user_id/builds'
+            render = {(routeProps) => 
+              <ListBuild builds={this.state.builds} routeProps={routeProps}/>
             }
             />
             <Route
-              path='/builds/:id'
+              path='/:user_id/builds/:id'
               render={() => 
                 <ViewBuild builds={this.state.builds}/>
               }

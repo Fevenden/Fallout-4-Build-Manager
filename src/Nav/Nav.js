@@ -11,7 +11,7 @@ export default function Nav(props) {
       <nav>
         <Link to='/login'>login</Link>
         <span>/</span>
-        <Link to='#'>logout</Link>
+        <Link to='/'>logout</Link>
       </nav>
     </header>
   )
