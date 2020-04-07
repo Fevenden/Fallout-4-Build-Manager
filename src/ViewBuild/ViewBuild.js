@@ -14,6 +14,14 @@ function ViewBuild(props) {
     props.history.push(`/${userId}/builds`)
   }
 
+  function deleteBuild(e) {
+    e.preventDefault()
+    const buildId = props.match.params.id
+    const userId = props.match.params.user_id
+    props.deleteBuild(buildId)
+    props.history.push(`/${userId}/builds`)
+  }
+
   return builds.map(build => 
    (
       <section className='container box' key={build.id}>
@@ -21,7 +29,7 @@ function ViewBuild(props) {
         <div>
           <button onClick={e => clickBack(e)}>Back</button>
           <button>Edit</button>
-          <button>Delete</button>
+          <button onClick={e => deleteBuild(e)}>Delete</button>
       </div>
       </section>
     )

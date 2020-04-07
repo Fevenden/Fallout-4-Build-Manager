@@ -42,6 +42,12 @@ class App extends React.Component {
     })
   }
 
+  deleteBuild = (buildId) => {
+    this.setState({
+      builds: this.state.builds.filter(build => build.id === buildId)
+    })
+  }
+
   setActiveUser = (user) => {
     this.setState({
       active_user: user
@@ -58,7 +64,7 @@ class App extends React.Component {
       addBuild: this.addBuild,
       setActiveUser: this.setActiveUser,
       addUser: this.addUser,
-      deleteBuild: () => {},
+      deleteBuild: this.deleteBuild,
       deleteUser: () => {}
     }
     return (
@@ -91,7 +97,7 @@ class App extends React.Component {
             <Route
               path='/:user_id/builds/:id'
               render={() => 
-                <ViewBuild builds={this.state.builds}/>
+                <ViewBuild builds={this.state.builds} deleteBuild={this.deleteBuild}/>
               }
             />
           </main>
