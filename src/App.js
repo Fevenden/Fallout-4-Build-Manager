@@ -8,6 +8,7 @@ import Login from './Login/Login'
 import ListBuild from './Listbuild/ListBuild'
 import ViewBuild from './ViewBuild/ViewBuild'
 import store from './dummy-store'
+import perks from './perks-store'
 import Context from './context'
 import './App.css'
 
@@ -16,7 +17,7 @@ class App extends React.Component {
     active_user: {},
     users: [],
     builds: [],
-    perks: [],
+    perks: perks
   }
 
   componentDidMount() {
@@ -25,7 +26,6 @@ class App extends React.Component {
       this.setState({
         builds: store.builds,
         users: store.users,
-        perks: store.perks
       })
     }, 1000)
   }

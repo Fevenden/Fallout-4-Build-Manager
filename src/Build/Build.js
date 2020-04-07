@@ -26,11 +26,6 @@ export default function Build(props) {
           )}
       </section>
       </div>
-      <div>
-        <button>Back</button>
-        <button>Edit</button>
-        <button>Delete</button>
-      </div>
     </>
   )
 }

@@ -68,6 +68,12 @@ class BuildForm extends React.Component {
     this.props.history.push(`/${build.user_id}/builds`)
   }
 
+  clickCancel(e) {
+    e.preventDefault()
+    const userId = this.context.active_user.id
+    this.props.history.push(`/${userId}/builds`)
+  }
+
   render() {
 
     return (
@@ -101,7 +107,7 @@ class BuildForm extends React.Component {
             <PerkInputs state={this.state} perks={this.context.perks} updatePerks={this.updatePerks}/>
           </fieldset>
           <div>
-            <button>Cancel</button>
+            <button onClick={e => this.clickCancel(e)}>Cancel</button>
             <button onClick={e => this.handleCreateBuild(e)}>Create Build</button>
           </div>
         </form>

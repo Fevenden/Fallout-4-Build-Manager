@@ -1,8 +1,6 @@
 export default {
   title: '',
   description: '',
-  requiredLevel: 1,
-  points: 28,
   stats: [
     {
       title: "strength",

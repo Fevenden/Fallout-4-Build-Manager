@@ -81,8 +81,10 @@ class Login extends React.Component {
     }
   }
 
-  
-
+  clickCancel(e) {
+    e.preventDefault()
+    this.props.history.push('/')
+  }
 
   render() {
     return (
@@ -109,7 +111,7 @@ class Login extends React.Component {
           />
 
           <div>
-            <button>Cancel</button>
+            <button onClick={e => this.clickCancel(e)}>Cancel</button>
             <button onClick={e => this.clickLogin(e)}>Login</button>
           </div>
         </form>

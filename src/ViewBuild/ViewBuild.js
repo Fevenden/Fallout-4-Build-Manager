@@ -8,10 +8,21 @@ function ViewBuild(props) {
     build.id === parseInt(props.match.params.id)
   )
 
+  function clickBack(e) {
+    e.preventDefault()
+    const userId = props.match.params.user_id
+    props.history.push(`/${userId}/builds`)
+  }
+
   return builds.map(build => 
    (
       <section className='container box' key={build.id}>
         <Build build={build}/>
+        <div>
+          <button onClick={e => clickBack(e)}>Back</button>
+          <button>Edit</button>
+          <button>Delete</button>
+      </div>
       </section>
     )
   ) 

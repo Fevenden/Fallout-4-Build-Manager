@@ -7,7 +7,6 @@ export default function Landing() {
     <section id='landing-box' className='box'>
       <h2>Welcome To BuildTech!</h2>
       <p>A better future, Online.</p>
-      <Link to='/build-form'>Create a build</Link>
       <Link to='/create-account'>Create an account</Link>
     </section>
   )
