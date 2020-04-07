@@ -31,6 +31,7 @@ export default {
       id: 1,
       user_id: 2,
       title: "Build 1",
+      description: 'Maecenas mauris felis, efficitur nec justo quis, condimentum blandit quam. Nunc quis enim eget quam maximus pharetra non id tellus. Aliquam vel bibendum nisl, vel dapibus leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
       stats: [
         {
           title: "strength",
@@ -61,13 +62,42 @@ export default {
           value: 1
         }
       ],
-      perks: ["perk1", "perk2", "perk3"],
-      description: 'Maecenas mauris felis, efficitur nec justo quis, condimentum blandit quam. Nunc quis enim eget quam maximus pharetra non id tellus. Aliquam vel bibendum nisl, vel dapibus leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.'
+      perks: [
+        {
+          stat: 'strength',
+          perks: []
+        },
+        {
+          stat: 'perception',
+          perks: []
+        },
+        {
+          stat: 'endurance',
+          perks: []
+        },
+        {
+          stat: 'charisma',
+          perks:[]
+        },
+        {
+          stat: 'intelligence',
+          perks: []
+        },
+        {
+          stat: 'agility',
+          perks:[]
+        },
+        {
+            stat: 'luck',
+            perks: []
+        }
+    ]
     },
     {
       id: 2,
       user_id: 3,
       title: "Build 2",
+      description: 'Maecenas mauris felis, efficitur nec justo quis, condimentum blandit quam. Nunc quis enim eget quam maximus pharetra non id tellus. Aliquam vel bibendum nisl, vel dapibus leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
       stats: [
         {
           title: "strength",
@@ -94,17 +124,46 @@ export default {
           value: 2
         },
         {
-          title: "luck",
+            title: "luck",
           value: 2
         }
       ],
-      perks: ["perk1", "perk2", "perk3"],
-      description: 'Maecenas mauris felis, efficitur nec justo quis, condimentum blandit quam. Nunc quis enim eget quam maximus pharetra non id tellus. Aliquam vel bibendum nisl, vel dapibus leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.'
+      perks: [
+        {
+          stat: 'strength',
+          perks: []
+        },
+        {
+          stat: 'perception',
+          perks: []
+        },
+        {
+          stat: 'endurance',
+          perks: []
+        },
+        {
+          stat: 'charisma',
+          perks:[]
+        },
+        {
+          stat: 'intelligence',
+          perks: []
+        },
+        {
+          stat: 'agility',
+          perks:[]
+        },
+        {
+          stat: 'luck',
+          perks: []
+        }
+      ]
     },
     {
       id: 3,
       user_id: 1,
       title: "Build 3",
+      description: 'Maecenas mauris felis, efficitur nec justo quis, condimentum blandit quam. Nunc quis enim eget quam maximus pharetra non id tellus. Aliquam vel bibendum nisl, vel dapibus leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
       stats: [
         {
           title: "strength",
@@ -135,8 +194,38 @@ export default {
           value: 3
         }
       ],
-      perks: ["perk1"],
-      description: 'Maecenas mauris felis, efficitur nec justo quis, condimentum blandit quam. Nunc quis enim eget quam maximus pharetra non id tellus. Aliquam vel bibendum nisl, vel dapibus leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.'
+      perks: [
+        {
+          stat: 'strength',
+          perks: []
+        },
+        {
+          stat: 'perception',
+          perks: []
+        },
+        {
+          stat: 'endurance',
+          perks: []
+        },
+        {
+          stat: 'charisma',
+          perks:[]
+        },
+        {
+          stat: 'intelligence',
+          perks: []
+        },
+        {
+          stat: 'agility',
+          perks:[]
+        },
+        {
+          stat: 'luck',
+          perks: [{
+                title: 'perk 1'
+          }]
+        }
+      ]
     }
   ],
 

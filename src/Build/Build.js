@@ -15,11 +15,15 @@ export default function Build(props) {
           </ul>
         </section>
         <section id='build-perks' className='box'>
-          <ul>
-            {props.build.perks.map(perk => 
-            <li key={perk}>{perk}</li>
-            )}
-          </ul>
+          {props.build.perks.map(p => 
+            p.perks == []
+              ? <p>No perks to show!</p>
+              : p.perks.map(perk => {
+                return (
+                  <h2>{perk.title}</h2>
+                )
+              })
+          )}
       </section>
       </div>
       <div>
