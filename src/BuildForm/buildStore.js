@@ -3,37 +3,37 @@ export default {
   description: '',
   stats: [
     {
-      title: "strength",
+      title: 'strength',
       value: 1,
       index: 0
     },
     {
-      title: "perception",
+      title: 'perception',
       value: 1,
       index: 1
     },
     {
-      title: "endurance",
+      title: 'endurance',
       value: 1,
       index:2
     },
     {
-      title: "charisma",
+      title: 'charisma',
       value: 1,
       index: 3
     },
     {
-      title: "intelligence",
+      title: 'intelligence',
       value: 1,
       index: 4
     },
     {
-      title: "agility",
+      title: 'agility',
       value: 1,
       index: 5
     },
     {
-      title: "luck",
+      title: 'luck',
       value: 1,
       index: 6
     }

@@ -136,13 +136,13 @@ class CreatAccount extends React.Component {
     e.preventDefault()
     const randomNum = Math.floor(Math.random() * Math.floor(100000))
     const user = {
-      id: randomNum,
+     id: randomNum,
       username: this.state.username.value,
       first_name: this.state.first_name.value,
       last_name: this.state.last_name.value,
       email: this.state.email.value,
       password: this.state.password.value
-    }
+    } 
 
     this.context.setActiveUser(user)
     this.context.addUser(user)

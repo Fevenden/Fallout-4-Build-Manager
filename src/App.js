@@ -44,7 +44,7 @@ class App extends React.Component {
 
   deleteBuild = (buildId) => {
     this.setState({
-      builds: this.state.builds.filter(build => build.id === buildId)
+      builds: this.state.builds.filter(build => build.id !== Number(buildId))
     })
   }
 

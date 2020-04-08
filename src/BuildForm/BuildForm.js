@@ -26,7 +26,28 @@ class BuildForm extends React.Component {
     stateCopy.stats = stateCopy.stats.slice()
     stateCopy.stats[i] = Object.assign({}, stateCopy.stats[i])
     stateCopy.stats[i].value = v
-    this.setState(stateCopy)
+    this.disablePerk(stateCopy, i)
+  }
+
+  disablePerk = (state, i) => {
+    const {stats, perks } = state
+    const p = perks[i].perks.filter(perk => perk.statRank <= stats[i].value)
+    const stateCopy = Object.assign({}, state)
+
+    stateCopy.perks[i].perks = p
+
+    this.setState(state)
+    this.setPerkInputValue(stats[i])
+  }
+
+  setPerkInputValue(stat) {
+    const { perks } = this.context 
+    const i = perks.findIndex(s => s.stat === stat.title)
+
+    if(stat.value < 10) {
+      const p = perks[i].perks[stat.value].name
+      document.getElementById(p).value = null
+    }
   }
 
   updatePerks = (perk, v, s) => {
@@ -42,7 +63,8 @@ class BuildForm extends React.Component {
       const p = {
         title: perk.name,
         rank: v,
-        description: perk.ranked[ridx].description
+        description: perk.ranked[ridx].description,
+        statRank: perk.rank 
       }
       const stateCopy = Object.assign({}, this.state)
       stateCopy.perks = stateCopy.perks.slice()
