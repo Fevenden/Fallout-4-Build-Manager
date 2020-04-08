@@ -38,4 +38,35 @@ function PerkInputs(props) {
   })
 }
 
+PerkInputs.defaultProps = {
+  perks: [
+    {
+      stat: '',
+      perks: [
+        {
+          rank: 1, 
+          name: '',
+          ranks: 1,
+          ranked: [
+            {
+              rank: 1,
+              description: ''
+            }
+          ]
+        }
+      ]
+    }
+  ],
+
+  state: {
+    stats: [
+      {
+        title: '',
+        value: 1,
+        index: 0
+      }
+    ]
+  }
+}
+
 export default PerkInputs

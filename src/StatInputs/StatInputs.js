@@ -17,4 +17,16 @@ function StatInputs(props) {
   )
 }
 
+StatInputs.defaultProps = {
+  state: {
+    stats: [
+      {
+        title: '',
+        value: 1,
+        index: 0 
+      }
+    ]
+  }
+}
+
 export default StatInputs
