@@ -6,11 +6,9 @@ export default function Nav(props) {
   return (
     <header>
       <Link to='/'>
-        <h1>Fallout 4 Build Manager</h1>
+        <h1>BuildTech</h1>
       </Link>
       <nav>
-        <Link to='/login'>login</Link>
-        <span>/</span>
         <Link to='/'>logout</Link>
       </nav>
     </header>

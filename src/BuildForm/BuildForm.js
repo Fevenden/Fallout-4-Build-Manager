@@ -21,33 +21,79 @@ class BuildForm extends React.Component {
     })
   }
 
-  updateStats = (i, v) => {
+  updateRequiredLevel = (state) => {
+    let val = 1
+    this.state.perks.forEach(primaryStat => {
+      if (primaryStat.perks.length === 0) {
+        this.setState({
+          ...state,
+          required_level: val + state.stat_total})
+      } else {
+        primaryStat.perks.forEach(perk => {
+          val = val + parseInt(perk.rank)
+          this.setState({
+            ...state,
+            required_level: + state.stat_total
+          })
+        })
+      }
+    })
+  }
+
+  increaseStat = (index) => {
     const stateCopy = Object.assign({}, this.state)
     stateCopy.stats = stateCopy.stats.slice()
-    stateCopy.stats[i] = Object.assign({}, stateCopy.stats[i])
-    stateCopy.stats[i].value = v
-    this.disablePerk(stateCopy, i)
-  }
-
-  disablePerk = (state, i) => {
-    const {stats, perks } = state
-    const p = perks[i].perks.filter(perk => perk.statRank <= stats[i].value)
-    const stateCopy = Object.assign({}, state)
-
-    stateCopy.perks[i].perks = p
-
-    this.setState(state)
-    this.setPerkInputValue(stats[i])
-  }
-
-  setPerkInputValue(stat) {
-    const { perks } = this.context 
-    const i = perks.findIndex(s => s.stat === stat.title)
-
-    if(stat.value < 10) {
-      const p = perks[i].perks[stat.value].name
-      document.getElementById(p).value = null
+    stateCopy.stats[index] = Object.assign({}, stateCopy.stats[index])
+    stateCopy.stats[index].value = stateCopy.stats[index].value + 1
+    if (stateCopy.points > 0) {
+      stateCopy.points = stateCopy.points -  1
+    } else {
+      stateCopy.stat_total = stateCopy.stat_total + 1 
     }
+    
+    // this.setState(stateCopy)
+    this.updateRequiredLevel(stateCopy)
+    // this.disablePerk(stateCopy, index)
+  }
+
+  decreaseStat = (index) => {
+    const stateCopy = Object.assign({}, this.state)
+    stateCopy.stats = stateCopy.stats.slice()
+    stateCopy.stats[index] = Object.assign({}, stateCopy.stats[index])
+    stateCopy.stats[index].value = stateCopy.stats[index].value - 1
+    if(stateCopy.stat_total < 1) {
+      stateCopy.points = stateCopy.points + 1
+    } else {
+      stateCopy.stat_total = stateCopy.stat_total - 1
+    }
+    
+    this.disablePerk(stateCopy, index)
+  }
+  
+  disablePerk = (state, index) => {
+    const {stats, perks } = state
+    const p = perks[index].perks.filter(perk => perk.statRank <= stats[index].value)
+    const stateCopy = Object.assign({}, state)
+    
+    stateCopy.perks[index].perks = p
+    // this.setState(state)
+    this.updateRequiredLevel(state)
+    this.clearPerkInputValue(index)
+  }
+
+  clearPerkInputValue(index) {
+    const nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    const { perks } = this.context 
+    const  stat = this.state.stats[index]
+    const pIndex = perks.findIndex(s => s.stat === stat.title)
+
+    nums.forEach(num => {
+      if (perks[index].perks[num].rank === stat.value) {
+        const idToTarget = perks[pIndex].perks[num].name
+        console.log(document.getElementById(idToTarget).value)
+        document.getElementById(idToTarget).value = 0
+      }
+    })
   }
 
   updatePerks = (perk, v, s) => {
@@ -58,7 +104,8 @@ class BuildForm extends React.Component {
       const stateCopy = Object.assign({}, this.state)
       const filterPerks = stateCopy.perks[sidx].perks.filter(p => p.title !== perk.name)
       stateCopy.perks[sidx].perks = filterPerks
-      return this.setState(stateCopy)
+      // this.setState(stateCopy)
+      this.updateRequiredLevel(stateCopy)
     } else {
       const p = {
         title: perk.name,
@@ -70,9 +117,12 @@ class BuildForm extends React.Component {
       stateCopy.perks = stateCopy.perks.slice()
       stateCopy.perks[sidx].perks[pidx] = Object.assign({}, stateCopy.perks[pidx])
       stateCopy.perks[sidx].perks[pidx] = p
-      this.setState(stateCopy)
+      // this.setState(stateCopy)
+      this.updateRequiredLevel(stateCopy)
     }
   }
+
+  
 
   handleCreateBuild(e) {
     e.preventDefault()
@@ -97,22 +147,24 @@ class BuildForm extends React.Component {
   }
 
   render() {
-
     return (
       <section className='form-box'>
         <h2>Create Build</h2>
         <form id='build-form'>
           <label htmlFor='title'>Build Title:</label>
           <input 
+            className='text'
             type='text' 
             id='title'
             placeholder='Title'
+            defaultValue=''
             onChange={e => this.updateTitle(e.target.value)} 
             name='title' 
             required 
           />
           <label htmlFor='description'>Description:</label>
           <textarea 
+            className='text'
             id='description'
             placeholder='describe your build'
             onChange={e => this.updateDescription(e.target.value)}
@@ -121,11 +173,14 @@ class BuildForm extends React.Component {
             cols='50'
           />
           <fieldset id='stats'>
-            <legend>Stats</legend>
-            <StatInputs state={this.state} updateStats={this.updateStats}/>
+          <p>SPECIAL Points: {this.state.points}</p>
+          <p>Required Level: {this.state.required_level}</p>
+            <legend>SPECIAL</legend>
+            <StatInputs state={this.state} decreaseStat={this.decreaseStat} increaseStat={this.increaseStat}/>
           </fieldset>
           <fieldset id='perks'>
             <legend>Perks</legend>
+            <p>Adding Perks will increase the required level regardless of how many Special Points you have</p>
             <PerkInputs state={this.state} perks={this.context.perks} updatePerks={this.updatePerks}/>
           </fieldset>
           <div>

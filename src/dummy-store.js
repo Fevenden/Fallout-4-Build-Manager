@@ -124,7 +124,7 @@ export default {
           value: 2
         },
         {
-            title: "luck",
+          title: "luck",
           value: 2
         }
       ],

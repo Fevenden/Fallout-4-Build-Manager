@@ -8,6 +8,7 @@ export default function Landing() {
       <h2>Welcome To BuildTech!</h2>
       <p>A better future, Online.</p>
       <Link to='/create-account'>Create an account</Link>
+      <Link to='/login'>Login to an existing account</Link>
     </section>
   )
 }

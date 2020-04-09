@@ -1,6 +1,10 @@
 export default {
   title: '',
   description: '',
+  points: 21,
+  perk_total: 0, 
+  stat_total: 0,
+  required_level: 1,
   stats: [
     {
       title: 'strength',

@@ -1,20 +1,30 @@
 import React from 'react'
 
 function StatInputs(props) {
-  return props.state.stats.map(stat => 
-    <div className='stat-input' key={stat.index}>
-      <label htmlFor={stat.title}>{stat.title.toUpperCase()}:</label>
-      <input 
-        type='number' 
-        id={stat.title} 
-        name={stat.title} 
-        onChange={e => {props.updateStats(stat.index, e.target.value)}}
-        min='1' max ='10' 
-        defaultValue='1' 
-        required 
-      />
-    </div>
-  )
+  return props.state.stats.map(stat => {
+    
+    function handleDecrease(e) {
+      e.preventDefault()
+      props.decreaseStat(stat.index)
+    }
+    
+    function handleIncrease(e) {
+      e.preventDefault()
+      props.increaseStat(stat.index)
+    }
+
+
+    return (
+      <div className='stat-input' key={stat.index}>
+        <label htmlFor={stat.title}>{stat.title.toUpperCase()}:</label>
+        <div>
+          <button onClick={e => handleDecrease(e)} disabled={stat.value === 1}>-</button>
+          <span>{stat.value}</span>
+          <button onClick={e => handleIncrease(e)} disabled={stat.value === 10}>+</button>
+        </div>
+      </div>
+    )
+  })
 }
 
 StatInputs.defaultProps = {
