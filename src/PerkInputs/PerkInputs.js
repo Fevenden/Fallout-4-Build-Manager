@@ -14,11 +14,13 @@ function PerkInputs(props) {
           return (
             <div key={perk.name} className='perk-inputs'>
               <label htmlFor={perk.name} className='tooltip'>{perk.rank}: {perk.name}
-                {perk.ranked.map(rank => {
-                  return (
-                    <p className='tooltiptext'>Rank {rank.rank}: {rank.description}</p>
-                  ) 
-                })}
+                <div className='tooltiptext'>
+                  {perk.ranked.map(rank => {
+                    return (
+                      <p>Rank {rank.rank}: {rank.description}</p>
+                      ) 
+                    })}
+                </div>
               </label>
               <select 
                 id={perk.name} 

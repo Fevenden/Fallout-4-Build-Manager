@@ -14,7 +14,7 @@ export default function ListBuild(props) {
     <section>
       <h2>Your Saved Builds</h2>
       <ul>
-        {builds == []
+        {builds.length === 0
           ? <p>You dont have any saved builds!<br/> Create a new One!</p>
           : builds.map(build => {
             return (

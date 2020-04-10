@@ -13,10 +13,12 @@ function StatInputs(props) {
       props.increaseStat(stat.index)
     }
 
-
     return (
       <div className='stat-input' key={stat.index}>
-        <label htmlFor={stat.title}>{stat.title.toUpperCase()}:</label>
+        <label htmlFor={stat.title} className='tooltip'>
+          <p className='tooltiptext'>{stat.des}</p>
+          {stat.title.charAt(0).toUpperCase() + stat.title.slice(1)}:
+        </label>
         <div>
           <button onClick={e => handleDecrease(e)} disabled={stat.value === 1}>-</button>
           <span>{stat.value}</span>

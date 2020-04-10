@@ -51,9 +51,7 @@ class BuildForm extends React.Component {
       stateCopy.stat_total = stateCopy.stat_total + 1 
     }
     
-    // this.setState(stateCopy)
     this.updateRequiredLevel(stateCopy)
-    // this.disablePerk(stateCopy, index)
   }
 
   decreaseStat = (index) => {
@@ -76,7 +74,6 @@ class BuildForm extends React.Component {
     const stateCopy = Object.assign({}, state)
     
     stateCopy.perks[index].perks = p
-    // this.setState(state)
     this.updateRequiredLevel(state)
     this.clearPerkInputValue(index)
   }
@@ -104,7 +101,6 @@ class BuildForm extends React.Component {
       const stateCopy = Object.assign({}, this.state)
       const filterPerks = stateCopy.perks[sidx].perks.filter(p => p.title !== perk.name)
       stateCopy.perks[sidx].perks = filterPerks
-      // this.setState(stateCopy)
       this.updateRequiredLevel(stateCopy)
     } else {
       const p = {
@@ -117,12 +113,9 @@ class BuildForm extends React.Component {
       stateCopy.perks = stateCopy.perks.slice()
       stateCopy.perks[sidx].perks[pidx] = Object.assign({}, stateCopy.perks[pidx])
       stateCopy.perks[sidx].perks[pidx] = p
-      // this.setState(stateCopy)
       this.updateRequiredLevel(stateCopy)
     }
   }
-
-  
 
   handleCreateBuild(e) {
     e.preventDefault()
@@ -150,6 +143,9 @@ class BuildForm extends React.Component {
     return (
       <section className='form-box'>
         <h2>Create Build</h2>
+        <p>Welcome to the build page! Here you can create a custom build and save it to your account</p>
+        <p>Perks become available as you increase your special stat.</p> <p>If you aren't sure what a Special stat or perk does just over hover it to learn more!</p>
+        <p>Please enjoy your time with BuildTech. A better future, online!</p>
         <form id='build-form'>
           <label htmlFor='title'>Build Title:</label>
           <input 
@@ -180,7 +176,7 @@ class BuildForm extends React.Component {
           </fieldset>
           <fieldset id='perks'>
             <legend>Perks</legend>
-            <p>Adding Perks will increase the required level regardless of how many Special Points you have</p>
+            <p>Perks become available as you increase your special stat. The required rank for a perk is listed on the left. Perks will increase the required level regardless of the amount of Special points available.</p>
             <PerkInputs state={this.state} perks={this.context.perks} updatePerks={this.updatePerks}/>
           </fieldset>
           <div>
