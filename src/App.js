@@ -10,6 +10,7 @@ import ViewBuild from './ViewBuild/ViewBuild'
 import store from './dummy-store'
 import perks from './perks-store'
 import Context from './context'
+import Config from './config'
 import './App.css'
 
 class App extends React.Component {
@@ -28,6 +29,9 @@ class App extends React.Component {
         users: store.users,
       })
     }, 1000)
+
+    fetch(Config.API_BASE_URL)
+      .then(r => console.log(r))
   }
 
   addUser = (user) => {
