@@ -23,20 +23,28 @@ class BuildForm extends React.Component {
 
   updateRequiredLevel = (state) => {
     let val = 1
-    this.state.perks.forEach(primaryStat => {
-      if (primaryStat.perks.length === 0) {
+    const { stat_total } = state
+    this.state.stats.forEach(stat => {
+      if (stat.perks.length === 0 ){
         this.setState({
           ...state,
-          required_level: val + state.stat_total})
-      } else {
-        primaryStat.perks.forEach(perk => {
+          required_level: val + stat_total
+        })
+      }
+      stat.perks.forEach(perk => {
+        if(perk === null) {
+          this.setState({
+            ...state,
+            required_level: val + stat_total
+          })
+        } else {
           val = val + parseInt(perk.rank)
           this.setState({
             ...state,
-            required_level: + state.stat_total
+            required_level: val + state.stat_total
           })
-        })
-      }
+        }
+      })
     })
   }
 
@@ -69,11 +77,17 @@ class BuildForm extends React.Component {
   }
   
   disablePerk = (state, index) => {
-    const {stats, perks } = state
-    const p = perks[index].perks.filter(perk => perk.statRank <= stats[index].value)
+    const { stats } = state
+    const p = stats[index].perks.map(perk => {
+      if( perk === null ||perk.statRank > stats[index].value) {
+        return null
+      } 
+
+      return perk
+    })
     const stateCopy = Object.assign({}, state)
     
-    stateCopy.perks[index].perks = p
+    stateCopy.stats[index].perks = p
     this.updateRequiredLevel(state)
     this.clearPerkInputValue(index)
   }
@@ -87,7 +101,6 @@ class BuildForm extends React.Component {
     nums.forEach(num => {
       if (perks[index].perks[num].rank === stat.value) {
         const idToTarget = perks[pIndex].perks[num].name
-        console.log(document.getElementById(idToTarget).value)
         document.getElementById(idToTarget).value = 0
       }
     })
@@ -96,23 +109,24 @@ class BuildForm extends React.Component {
   updatePerks = (perk, v, s) => {
     const pidx = perk.rank - 1
     const ridx = v - 1
-    const sidx = this.state.perks.findIndex(stat => stat.stat === s)
+    const sidx = this.state.stats.findIndex(stat => stat.title === s)
+    
     if(ridx < 0) {
       const stateCopy = Object.assign({}, this.state)
-      const filterPerks = stateCopy.perks[sidx].perks.filter(p => p.title !== perk.name)
-      stateCopy.perks[sidx].perks = filterPerks
+      stateCopy.stats[sidx].perks[pidx] = null
       this.updateRequiredLevel(stateCopy)
     } else {
       const p = {
+        stat: s,
         title: perk.name,
         rank: v,
         description: perk.ranked[ridx].description,
         statRank: perk.rank 
       }
       const stateCopy = Object.assign({}, this.state)
-      stateCopy.perks = stateCopy.perks.slice()
-      stateCopy.perks[sidx].perks[pidx] = Object.assign({}, stateCopy.perks[pidx])
-      stateCopy.perks[sidx].perks[pidx] = p
+      stateCopy.stats[sidx].perks = stateCopy.stats[sidx].perks.slice()
+      stateCopy.stats[sidx].perks[pidx] = Object.assign({}, stateCopy.stats[sidx].perks[pidx])
+      stateCopy.stats[sidx].perks[pidx] = p
       this.updateRequiredLevel(stateCopy)
     }
   }
