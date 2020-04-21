@@ -21,6 +21,7 @@ class App extends React.Component {
     perks: perks
   }
 
+
   componentDidMount() {
     //simulate api call
     setTimeout(() => {
@@ -30,8 +31,8 @@ class App extends React.Component {
       })
     }, 1000)
 
-    fetch(Config.API_BASE_URL)
-      .then(r => console.log(r))
+  //   fetch(Config.API_BASE_URL)
+  //     .then(r => console.log(r))
   }
 
   addUser = (user) => {
