@@ -2,90 +2,41 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import ValidationError from '../ValidationError'
 import Context from '../context'
+import AuthApiService from '../services/auth-api-services'
 import './CreateAccount.css'
 
 class CreatAccount extends React.Component {
   static contextType = Context
 
-  state = {
-    first_name:{
-      value:'',
-      touched: false
-    },
-    last_name: {
-      value: '',
-      touched: false
-    },
-    username: {
-      value: '',
-      touched: false
-    },
-    email: {
-      value: '',
-      touched: false
-    },
-    password: {
-      value: '',
-      touched: false
-    },
-    re_password: {
-      value: '',
-      touched: false
-    }
+  state = {error: null}
+
+  handleSuccessfulNewUser = (user) => {
+    const { history } = this.props
+    history.push('/login')
+
   }
 
-  updateFirstName(firstName) {
-    this.setState({
-      first_name: {
-        value: firstName,
-        touched: true
-      }
-    })
-  }
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const { full_name, username, email, password} = e.target
 
-  updateLastName(lastName) {
-    this.setState({
-      last_name: {
-        value: lastName,
-        touched: true
-      }
+    this.setState({error: null})
+    AuthApiService.postUser({
+      username: username.value,
+      user_password: password.value,
+      full_name: full_name.value,
+      email: email.value
     })
-  }
-
-  updateUsername(username) {
-    this.setState({
-      username: {
-        value: username,
-        touched: true
-      }
-    })
-  }
-
-  updateEmail(email) {
-    this.setState({
-      email: {
-        value: email,
-        touched: true
-      }
-    })
-  }
-
-  updatePassword(password) {
-    this.setState({
-      password: {
-        value: password,
-        touched: true
-      }
-    })
-  }
-
-  updateRePassword(rePassword) {
-    this.setState({
-      re_password: {
-        value: rePassword,
-        touched: true
-      }
-    })
+      .then(user => {
+        full_name.value = ''
+        email.value = ''
+        username.value = ''
+        password.value = ''
+        this.handleSuccessfulNewUser()
+      })
+      .catch(res => {
+        this.setState({ error: res.error})
+      })
   }
 
   validateEmail() {
@@ -159,97 +110,54 @@ class CreatAccount extends React.Component {
     return (
       <section id='create-account-box' className='box'>
         <h2>Create Account</h2>
-        <form id='create-account-form'>
-          <label htmlFor='first-name'>Fist Name:</label>
+        <form id='create-account-form' onSubmit={this.handleSubmit}>
+          <label htmlFor='full_name'>Full Name:</label>
           <input 
             type='text' 
-            id='first-name' 
-            placeholder='First Name'
-            onChange={e => this.updateFirstName(e.target.value)}
+            id='full_name' 
+            name= 'full_name'
+            placeholder='Full Name'
             required 
           />
-
-          {this.state.first_name.touched && (
-            <ValidationError message={this.validateNames('first name')} />
-          )}
-
-          <label htmlFor='last-name'>Last Name:</label>
-          <input 
-            type='text' 
-            id='last-name' 
-            placeholder='Last Name'
-            onChange={e => this.updateLastName(e.target.value)}
-            required 
-          />
-
-          {this.state.last_name.touched && (
-            <ValidationError message={this.validateNames('last name')} />
-          )}
 
           <label htmlFor='create-username'>Create a Username:</label>
           <input 
             type='text' 
-            id='create-username' 
+            id='create-username'
+            name='username' 
             placeholder='Username'
-            onChange={e => this.updateUsername(e.target.value)}
             required 
           />
-
-          {this.state.username.touched && (
-            <ValidationError message={this.validateNames('username')} />
-          )}
 
           <label htmlFor='email'>Email:</label>
           <input 
             type='email' 
             id='email' 
+            name='email'
             placeholder='youremail@email.com'
-            onChange={e => this.updateEmail(e.target.value)}
             required 
           />
-
-          {this.state.email.touched && (
-            <ValidationError message={this.validateEmail()}/>
-          )}
-
+         
           <label htmlFor='password'>Password:</label>
           <input 
             type='password'
             id='password' 
+            name='passwword'
             placeholder='Password'
-            onChange={e => this.updatePassword(e.target.value)} 
             required 
           />
-
-          {this.state.password.touched && (
-            <ValidationError message={this.validatePassword()}/>
-          )}
 
           <label htmlFor='verify password'>Re-enter Password:</label>
           <input 
             type='password' 
             id='verify-password' 
             placeholder='Re-enter password'
-            onChange={e => this.updateRePassword(e.target.value)}
             required 
           />
 
-          {this.state.re_password.touched && (
-            <ValidationError message={this.validatePasswordsMatch()}/>
-          )}
-        
-
           <div>
             <button onClick={e => this.handleClickCancel(e)}>Cancel</button>
-            <button 
-              onClick={e => this.handleSubmit(e)}
-              disabled={
-                this.validatePasswordsMatch() ||
-                this.validatePassword() ||
-                this.validateEmail() ||
-                this.validateNames() 
-              }
-            >
+            <button type='submit'>
               Create Account
             </button>
           </div>
