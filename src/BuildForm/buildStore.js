@@ -8,7 +8,7 @@ export default {
   stats: [
     {
       title: 'strength',
-      des: 'Each point in strength increase carry capacy by 10 and melee damage by 10%.',
+      des: 'Each point in strength increases carry capacity by 10 and melee damage by 10%.',
       value: 1,
       index: 0,
       perks: []
