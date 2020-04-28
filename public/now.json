@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "alias": "ft3ve1-fallout-4-build-manager",
-  "name": "fallout-4-build-manager",
+  "alias": "ft3ve1-buildtech",
+  "name": "buildtech",
   "routes": [
-    { 
+    {
       "handle": "filesystem"
     },
-    { 
-      "src": "/.*", 
-      "dest": "index.html" 
+    {
+      "src": "/.*",
+      "dest": "index.html"
     }
   ]
 }

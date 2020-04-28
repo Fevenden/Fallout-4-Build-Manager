@@ -15,7 +15,7 @@ export default function Build(props) {
           </ul>
         </section>
         <section id='build-perks' className='box'>
-          {props.build.perks.map(p => 
+          {props.build.perks.map(p =>
             p.perks == []
               ? <p>No perks to show!</p>
               : p.perks.map(perk => {
