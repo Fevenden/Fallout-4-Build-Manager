@@ -4,11 +4,8 @@ import './ListBuild.css'
 
 export default function ListBuild(props) {
   let builds = props.builds.filter(build => {
-    console.log(build.user_id)
     return build.user_id === parseInt(props.routeProps.match.params.user_id)
   })
-
-  console.log(parseInt(props.routeProps.match.params.user_id))
 
   return (
     <section>

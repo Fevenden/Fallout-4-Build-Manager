@@ -1,8 +1,8 @@
 import React from 'react'
 import './Login.css'
-import AuthApiService from '../services/auth-api-services'
-import TokenService from '../services/token-service'
-import Context from '../context'
+import AuthApiService from '../../services/auth-api-services'
+import TokenService from '../../services/token-service'
+import Context from '../../context/context'
 
 class Login extends React.Component {
   static contextType = Context
@@ -28,7 +28,7 @@ class Login extends React.Component {
       .then(res => {
         username.value = ''
         password.value = ''
-        TokenService.saveAuthToken(res.authToken)
+        // TokenService.saveAuthToken(res.authToken)
         this.onLoginSuccess()
       })
       .catch(res => {
@@ -69,11 +69,11 @@ class Login extends React.Component {
   // clickLogin(e) {
   //   e.preventDefault()
   //   const { username, password } = this.state
-  //   const users = this.context.users.filter(user => 
+  //   const users = this.context.users.filter(user =>
   //     user.username === username.value
   //   )
   //   const user = users[0]
-    
+
   //   if (user === undefined) {
   //     return this.setState({
   //       err: 'Username or password incorrect, try again'
@@ -87,7 +87,7 @@ class Login extends React.Component {
   //   if (user.password !== password.value) {
   //     return this.setState({
   //       err: 'Username or password incorrect, try again'
-  //     }) 
+  //     })
   //   } else {
   //      this.setState({
   //       err: null
@@ -112,23 +112,23 @@ class Login extends React.Component {
         <p>{this.state.error}</p>
         <form id='login-form' onSubmit={this.handleLogin}>
           <label htmlFor='login-username'>Username</label>
-          <input 
-            type='text' 
-            id='login-username' 
+          <input
+            type='text'
+            id='login-username'
             name='username'
             placeholder='Username'
             /*onChange={e => this.updateUsername(e.target.value)} */
-            required 
+            required
           />
 
           <label htmlFor='login-password'>Password</label>
-          <input 
-            type='password' 
-            id='login-password' 
+          <input
+            type='password'
+            id='login-password'
             name='password'
             placeholder='password'
             /*onChange={e => this.updatePassword(e.target.value)}  */
-            required 
+            required
           />
 
           <div>

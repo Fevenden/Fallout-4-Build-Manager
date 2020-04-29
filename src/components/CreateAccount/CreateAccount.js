@@ -1,8 +1,8 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import ValidationError from '../ValidationError'
-import Context from '../context'
-import AuthApiService from '../services/auth-api-services'
+import ValidationError from '../../ValidationError'
+import Context from '../../context/context'
+import AuthApiService from '../../services/auth-api-services'
 import './CreateAccount.css'
 
 class CreatAccount extends React.Component {
@@ -58,14 +58,14 @@ class CreatAccount extends React.Component {
     }
   }
 
-  
+
   validatePasswordsMatch() {
     if (this.state.password.value !== this.state.re_password.value) {
       return 'passwords do not match'
     }
   }
-  
-  
+
+
   validateNames(name) {
     let usedName
     if (name === 'first name') {
@@ -75,11 +75,11 @@ class CreatAccount extends React.Component {
     } else {
       usedName = this.state.username.value
     }
-    
+
     if (usedName.length === 0 ) {
       return `A ${name} is required`
     } else if (usedName.length < 2) {
-      return `A ${name} must be at least 2 characters` 
+      return `A ${name} must be at least 2 characters`
     }
   }
 
@@ -93,13 +93,13 @@ class CreatAccount extends React.Component {
       last_name: this.state.last_name.value,
       email: this.state.email.value,
       password: this.state.password.value
-    } 
+    }
 
     this.context.setActiveUser(user)
     this.context.addUser(user)
     this.props.history.push(`/${user.id}/builds`)
   }
-  
+
   handleClickCancel(e) {
     e.preventDefault()
     this.props.history.push('/')
@@ -112,47 +112,47 @@ class CreatAccount extends React.Component {
         <h2>Create Account</h2>
         <form id='create-account-form' onSubmit={this.handleSubmit}>
           <label htmlFor='full_name'>Full Name:</label>
-          <input 
-            type='text' 
-            id='full_name' 
+          <input
+            type='text'
+            id='full_name'
             name= 'full_name'
             placeholder='Full Name'
-            required 
+            required
           />
 
           <label htmlFor='create-username'>Create a Username:</label>
-          <input 
-            type='text' 
+          <input
+            type='text'
             id='create-username'
-            name='username' 
+            name='username'
             placeholder='Username'
-            required 
+            required
           />
 
           <label htmlFor='email'>Email:</label>
-          <input 
-            type='email' 
-            id='email' 
+          <input
+            type='email'
+            id='email'
             name='email'
             placeholder='youremail@email.com'
-            required 
+            required
           />
-         
+
           <label htmlFor='password'>Password:</label>
-          <input 
+          <input
             type='password'
-            id='password' 
+            id='password'
             name='passwword'
             placeholder='Password'
-            required 
+            required
           />
 
           <label htmlFor='verify password'>Re-enter Password:</label>
-          <input 
-            type='password' 
-            id='verify-password' 
+          <input
+            type='password'
+            id='verify-password'
             placeholder='Re-enter password'
-            required 
+            required
           />
 
           <div>

@@ -1,4 +1,8 @@
+import jwtDecode from'jwt-decode'
 import config from '../config'
+
+let _timeoutId
+const _TEN_SECONDS_IN_MS = 10000
 
 const TokenService = {
   saveAuthToken(token) {
@@ -12,7 +16,25 @@ const TokenService = {
   },
   hasAuthToken() {
     return !!TokenService.getAuthToken()
-  }, 
+  },
+  parseJwt(jwt) {
+    return jwtDecode(jwt)
+  },
+  readJwToken() {
+    return TokenService.parseJwt(TokenService.getAuthToken())
+  },
+  _getsMsUntilExpiry(payload) {
+    return (payload.exp * 1000) -Date.now()
+  },
+  queCallbackBeforeExpirey(callback) {
+    const MsUntilExpiry = TokenService._getsMsUntilExpiry(
+      TokenService.readJwToken()
+    )
+    _timeoutId = setTimeout(callback, MsUntilExpiry - _TEN_SECONDS_IN_MS)
+  },
+  clearCallbackBeforeExpirey() {
+    clearTimeout(_timeoutId)
+  }
 }
 
 export default TokenService

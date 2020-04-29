@@ -1,8 +1,8 @@
 import React from 'react'
 import './BuildForm.css'
-import Context from '../context'
-import PerkInputs from '../PerkInputs/PerkInputs'
-import StatInputs from '../StatInputs/StatInputs'
+import Context from '../../context/context'
+import PerkInputs from './PerkInputs/PerkInputs'
+import StatInputs from './StatInputs/StatInputs'
 import store from './buildStore'
 
 class BuildForm extends React.Component {
@@ -56,9 +56,9 @@ class BuildForm extends React.Component {
     if (stateCopy.points > 0) {
       stateCopy.points = stateCopy.points -  1
     } else {
-      stateCopy.stat_total = stateCopy.stat_total + 1 
+      stateCopy.stat_total = stateCopy.stat_total + 1
     }
-    
+
     this.updateRequiredLevel(stateCopy)
   }
 
@@ -72,21 +72,21 @@ class BuildForm extends React.Component {
     } else {
       stateCopy.stat_total = stateCopy.stat_total - 1
     }
-    
+
     this.disablePerk(stateCopy, index)
   }
-  
+
   disablePerk = (state, index) => {
     const { stats } = state
     const p = stats[index].perks.map(perk => {
       if( perk === null ||perk.statRank > stats[index].value) {
         return null
-      } 
+      }
 
       return perk
     })
     const stateCopy = Object.assign({}, state)
-    
+
     stateCopy.stats[index].perks = p
     this.updateRequiredLevel(state)
     this.clearPerkInputValue(index)
@@ -94,7 +94,7 @@ class BuildForm extends React.Component {
 
   clearPerkInputValue(index) {
     const nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    const { perks } = this.context 
+    const { perks } = this.context
     const  stat = this.state.stats[index]
     const pIndex = perks.findIndex(s => s.stat === stat.title)
 
@@ -110,7 +110,7 @@ class BuildForm extends React.Component {
     const pidx = perk.rank - 1
     const ridx = v - 1
     const sidx = this.state.stats.findIndex(stat => stat.title === s)
-    
+
     if(ridx < 0) {
       const stateCopy = Object.assign({}, this.state)
       stateCopy.stats[sidx].perks[pidx] = null
@@ -121,7 +121,7 @@ class BuildForm extends React.Component {
         title: perk.name,
         rank: v,
         description: perk.ranked[ridx].description,
-        statRank: perk.rank 
+        statRank: perk.rank
       }
       const stateCopy = Object.assign({}, this.state)
       stateCopy.stats[sidx].perks = stateCopy.stats[sidx].perks.slice()
@@ -162,18 +162,18 @@ class BuildForm extends React.Component {
         <p>Please enjoy your time with BuildTech. A better future, online!</p>
         <form id='build-form'>
           <label htmlFor='title'>Build Title:</label>
-          <input 
+          <input
             className='text'
-            type='text' 
+            type='text'
             id='title'
             placeholder='Title'
             defaultValue=''
-            onChange={e => this.updateTitle(e.target.value)} 
-            name='title' 
-            required 
+            onChange={e => this.updateTitle(e.target.value)}
+            name='title'
+            required
           />
           <label htmlFor='description'>Description:</label>
-          <textarea 
+          <textarea
             className='text'
             id='description'
             placeholder='describe your build'
@@ -198,7 +198,7 @@ class BuildForm extends React.Component {
             <button onClick={e => this.handleCreateBuild(e)}>Create Build</button>
           </div>
         </form>
-        
+
       </section>
     )
   }
