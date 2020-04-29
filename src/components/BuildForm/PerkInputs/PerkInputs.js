@@ -34,7 +34,7 @@ function PerkInputs(props) {
                 <option id={`${perk.name}1`} value='0'>Choose a rank</option>
                 {perk.ranked.map(rank => {
                   return (
-                  <option value={parseInt(rank.rank)}>Rank {rank.rank}</option>
+                  <option value={rank.rank}>Rank {rank.rank}</option>
                   )
                 })}
               </select>
