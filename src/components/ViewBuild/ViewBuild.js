@@ -2,7 +2,7 @@ import React from 'react'
 import Build from '../Build/Build'
 import Context from '../../context/context'
 import BuildTechApiService from '../../services/build_tech-api-services'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 import './ViewBuild.css'
 
 class ViewBuild extends React.Component {
@@ -11,10 +11,6 @@ class ViewBuild extends React.Component {
   }
 
   static contextType = Context
-
-  // const builds = props.builds.filter(build =>
-  //   build.id === parseInt(props.match.params.build_id)
-  // )
 
   componentDidMount() {
     const { build_id } = this.props.match.params
@@ -36,6 +32,7 @@ class ViewBuild extends React.Component {
   onDeleteSuccess(build_id) {
     this.context.deleteBuild(build_id)
     this.props.history.push('/builds')
+    this.forceUpdate()
   }
 
   onClickDelete(e) {
@@ -68,16 +65,11 @@ class ViewBuild extends React.Component {
         <div>
           {render}
           <button onClick={e => this.backClick(e)}>Back</button>
-          <button>Edit</button>
           <button onClick={e => this.onClickDelete(e)}>Delete</button>
         </div>
       </section>
     )
   }
 }
-
-// ViewBuild.defaultProps = {
-//   builds: []
-// }
 
 export default withRouter(ViewBuild)
