@@ -161,13 +161,12 @@ class BuildForm extends React.Component {
 
     this.context.clearError()
     BuildTechApiService.postBuild(build)
-      // .then(this.handleSuccessfulSubmit(build))
       .then(res =>
         !res.ok
           ? res.json().then(e => Promise.reject(e))
           : this.handleSuccessfulSubmit(build)
       )
-      // .then(res => console.log(res))
+
       .catch(err => this.context.setError(err.error))
   }
 
