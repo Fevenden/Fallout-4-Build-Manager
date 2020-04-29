@@ -13,9 +13,24 @@
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
+    color: blue;
 }
 
 .tooltip:hover .tooltiptext {
     visibility: visible;
+}
+
+.perkInput {
+  border-radius: 10px;
+  height: 40px;
+  margin: 10px;
+}
+
+.perkInput:disabled {
+  background-color: white;
+  color: lightgrey;
+}
+
+label.disabled {
+  color: lightgrey
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import './Login.css'
 import AuthApiService from '../../services/auth-api-services'
-import TokenService from '../../services/token-service'
 import Context from '../../context/context'
 
 class Login extends React.Component {
@@ -10,7 +9,6 @@ class Login extends React.Component {
   state = {error: null}
 
   onLoginSuccess = () => {
-    console.log('working')
     const { location, history } = this.props
     const destination = (location.state || {}).from || '/'
     history.push(destination)
@@ -52,7 +50,6 @@ class Login extends React.Component {
             id='login-username'
             name='username'
             placeholder='Username'
-            /*onChange={e => this.updateUsername(e.target.value)} */
             required
           />
 
@@ -62,7 +59,6 @@ class Login extends React.Component {
             id='login-password'
             name='password'
             placeholder='password'
-            /*onChange={e => this.updatePassword(e.target.value)}  */
             required
           />
 

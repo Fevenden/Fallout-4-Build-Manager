@@ -2,7 +2,7 @@ import React from 'react'
 import './Build.css'
 
 export default function Build(props) {
-  const {title, description, stats, id, required_level} = props.build
+  const {title, description, stats, required_level} = props.build
 
   let perks = []
 

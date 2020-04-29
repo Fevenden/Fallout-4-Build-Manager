@@ -134,10 +134,13 @@ class BuildForm extends React.Component {
   }
 
   handleSuccessfulSubmit(build) {
-    this.props.history.push(`/builds`)
+    if(this.context.error === null) {
+      this.props.history.push(`/builds`)
+      this.forceUpdate()
+    }
   }
 
-  submitBuild(e) {
+  submitBuild = (e) => {
     e.preventDefault()
     const build = {
       title: this.state.title,
@@ -156,14 +159,20 @@ class BuildForm extends React.Component {
       this.props.history.push(`/login`)
     }
 
+    this.context.clearError()
     BuildTechApiService.postBuild(build)
-      .then(this.handleSuccessfulSubmit(build))
-      .catch(console.log)
+      // .then(this.handleSuccessfulSubmit(build))
+      .then(res =>
+        !res.ok
+          ? res.json().then(e => Promise.reject(e))
+          : this.handleSuccessfulSubmit(build)
+      )
+      // .then(res => console.log(res))
+      .catch(err => this.context.setError(err.error))
   }
 
   clickCancel(e) {
     e.preventDefault()
-    const userId = this.context.active_user.id
     this.props.history.push(`/builds`)
   }
 
@@ -174,7 +183,7 @@ class BuildForm extends React.Component {
         <p>Welcome to the build page! Here you can create a custom build and save it to your account</p>
         <p>Perks become available as you increase your special stat.</p> <p>If you aren't sure what a Special stat or perk does just over hover it to learn more!</p>
         <p>Please enjoy your time with BuildTech. A better future, online!</p>
-        <form id='build-form'>
+        <form id='build-form' onSubmit={this.submitBuild}>
           <label htmlFor='title'>Build Title:</label>
           <input
             className='text'
@@ -208,8 +217,9 @@ class BuildForm extends React.Component {
             <PerkInputs state={this.state} perks={this.context.perks} updatePerks={this.updatePerks}/>
           </fieldset>
           <div>
+            <p>{this.context.error}</p>
             <button onClick={e => this.clickCancel(e)}>Cancel</button>
-            <button onClick={e => this.submitBuild(e)}>Create Build</button>
+            <button type='submit'>Create Build</button>
           </div>
         </form>
 

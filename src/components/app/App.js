@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Switch } from 'react-router-dom'
 import Nav from '../Nav/Nav'
 import Landing from '../Landing/Landing'
 import PublicOnlyRoute from '../utils/PublicOnlyRoute'
@@ -20,7 +20,8 @@ class App extends React.Component {
   state = {
     builds: [],
     build: {},
-    perks: perks
+    perks: perks,
+    error: null
   }
 
 
@@ -67,23 +68,32 @@ class App extends React.Component {
     this.setBuild({})
   }
 
-  // addBuild = (build) => {
-  //   this.setState({
-  //     builds: [...this.state.builds, build]
-  //   })
-  // }
+  setError = (err) => {
+    this.setState({
+      error: err
+    })
+  }
+
+  clearError = () => {
+    this.setState({
+      error: null
+    })
+  }
 
   render() {
     const contextValue = {
       builds: this.state.builds,
       build: this.state.build,
       perks: this.state.perks,
+      error: this.state.error,
       setBuild: this.setBuild,
       deleteBuild: this.deleteBuild,
       setBuilds: this.setBuilds,
       clearBuild: this.clearBuild,
-      // addBuild: this.addBuild,
+      setError: this.setError,
+      clearError: this.clearError,
     }
+
     return (
       <div className='app'>
         <Nav builds={this.state.builds} />

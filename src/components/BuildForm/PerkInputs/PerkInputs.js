@@ -13,7 +13,15 @@ function PerkInputs(props) {
         {stat.perks.map(perk => {
           return (
             <div key={perk.name} className='perk-inputs'>
-              <label htmlFor={perk.name} className='tooltip'>{perk.rank}: {perk.name}
+              <label
+                htmlFor={perk.name}
+                className={
+                  (statVal < perk.rank)
+                    ? 'tooltip disabled'
+                    : 'tooltip'
+                }
+                >
+                  {perk.rank}: {perk.name}
                 <div className='tooltiptext'>
                   {perk.ranked.map(rank => {
                     return (

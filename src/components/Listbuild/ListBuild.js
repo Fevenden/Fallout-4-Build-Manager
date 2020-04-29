@@ -8,24 +8,32 @@ export default class ListBuild extends React.Component {
   static contextType = Context
 
   componentDidMount() {
+    this.context.clearError()
     BuildTechApiService.getBuilds()
       .then(this.context.setBuilds)
-      .catch(console.log)
+      .catch(err => this.context.setError(err.error))
   }
 
   render() {
     const {builds = []} = this.context
     return (
-      <section>
+      <section className='users-builds'>
         <h2>Your Saved Builds</h2>
-        <ul>
+        {this.context.error !== null
+          ? (<div>{this.context.error}</div>)
+          : null
+        }
+        <ul className='build-list'>
           {builds.length === 0
             ? <p>You dont have any saved builds!<br/> Create a new One!</p>
             : builds.map(build => {
               return (
-                <li key={`${build.id}`}>
-                  <Link to={`/builds/${build.id}`}> {build.title}</Link>
-                </li>
+                <Link className='buildLink' to={`/builds/${build.id}`}>
+                  <li key={`${build.id}`} className='listed-build'>
+                    <h3> {build.title}</h3>
+                    <p>{build.description}</p>
+                  </li>
+                </Link>
               )
           })}
         </ul>

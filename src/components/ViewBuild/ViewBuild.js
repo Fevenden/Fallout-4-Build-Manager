@@ -18,9 +18,10 @@ class ViewBuild extends React.Component {
 
   componentDidMount() {
     const { build_id } = this.props.match.params
+    this.context.clearError()
     BuildTechApiService.getBuildById(build_id)
       .then(this.context.setBuild)
-      .catch(console.log)
+      .catch(err => this.context.setError(err.error))
   }
 
   componentWillUnmount() {
@@ -42,7 +43,7 @@ class ViewBuild extends React.Component {
     const {build_id} = this.props.match.params
     BuildTechApiService.deleteBuild(build_id)
       .then(this.onDeleteSuccess(build_id))
-      .catch(console.log)
+      .catch(err => this.context.setError(err.error))
   }
 
   renderBuild() {
@@ -55,8 +56,10 @@ class ViewBuild extends React.Component {
   render() {
     const {build} = this.context
     let render
-    if(!build.id) {
-      render = <div className='loading' />
+    if (this.context.error !== null)  {
+      render = <p className='error'>{this.context.error}</p>
+    } else if(!build.id) {
+      render = <div className='loading'><p>Loading</p></div>
     } else {
       render = this.renderBuild()
     }

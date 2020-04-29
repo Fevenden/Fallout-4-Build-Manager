@@ -1,0 +1,10 @@
+button.stat-button {
+  border-radius: 10px;
+  width:30px;
+}
+
+.stat-value {
+  display: inline-block;
+  padding: 5px;
+  width: 25px;
+}
