@@ -5,6 +5,8 @@ const Context = React.createContext({
   build: [],
   perks: [],
   error: null,
+  setError: () => {},
+  clearError: () => {},
   setBuild: () => {},
   deleteBuild: () => {},
   clearBuild: () => {},
