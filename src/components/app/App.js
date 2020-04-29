@@ -1,15 +1,16 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Nav from '../Nav/Nav'
 import Landing from '../Landing/Landing'
+import PublicOnlyRoute from '../utils/PublicOnlyRoute'
+import PrivateRoute from '../utils/PrivateRoute'
 import BuildForm from '../BuildForm/BuildForm'
 import CreateAccount from '../CreateAccount/CreateAccount'
 import Login from '../Login/Login'
+import Context from '../../context/context'
 import ListBuild from '../Listbuild/ListBuild'
 import ViewBuild from '../ViewBuild/ViewBuild'
-import store from '../../stores/dummy-store'
 import perks from '../../stores/perks-store'
-import Context from '../../context/context'
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-services'
 import IdleService from '../../services/idle-service'
@@ -17,36 +18,33 @@ import './App.css'
 
 class App extends React.Component {
   state = {
-    active_user: {},
-    users: [],
     builds: [],
+    build: {},
     perks: perks
   }
 
 
   componentDidMount() {
-    //simulate api call
-    setTimeout(() => {
-      this.setState({
-        builds: store.builds,
-        users: store.users,
+    IdleService.setIdleCallback(this.logoutFromIdle)
+
+    if(TokenService.hasAuthToken()){
+      IdleService.registerIdleTimeResets()
+      TokenService.queCallbackBeforeExpirey(() => {
+        AuthApiService.postRefreshToken()
       })
-    }, 1000)
-
-  //   fetch(Config.API_BASE_URL)
-  //     .then(r => console.log(r))
+    }
   }
 
-  addUser = (user) => {
-    this.setState({
-      users: [...this.state.users, user]
-    })
+  componentWillUnmount() {
+    IdleService.unRegisterIdleResets()
+    TokenService.clearCallbackBeforeExpirey()
   }
 
-  addBuild = (build) => {
-    this.setState({
-      builds: [...this.state.builds, build]
-    })
+  logoutFromIdle = () => {
+    TokenService.clearAuthToken()
+    TokenService.clearCallbackBeforeExpirey()
+    IdleService.unRegisterIdleResets()
+    this.forceUpdate()
   }
 
   deleteBuild = (buildId) => {
@@ -55,58 +53,68 @@ class App extends React.Component {
     })
   }
 
-  setActiveUser = (user) => {
+  setBuilds = (builds) => {
+    this.setState({builds: builds})
+  }
+
+  setBuild = (build) => {
     this.setState({
-      active_user: user
+      build: build
     })
   }
 
+  clearBuild = () => {
+    this.setBuild({})
+  }
+
+  // addBuild = (build) => {
+  //   this.setState({
+  //     builds: [...this.state.builds, build]
+  //   })
+  // }
+
   render() {
     const contextValue = {
-      active_user: this.state.active_user,
-      users: this.state.users,
       builds: this.state.builds,
-      stats: this.state.stats,
+      build: this.state.build,
       perks: this.state.perks,
-      addBuild: this.addBuild,
-      setActiveUser: this.setActiveUser,
-      addUser: this.addUser,
+      setBuild: this.setBuild,
       deleteBuild: this.deleteBuild,
-      deleteUser: () => {}
+      setBuilds: this.setBuilds,
+      clearBuild: this.clearBuild,
+      // addBuild: this.addBuild,
     }
     return (
       <div className='app'>
         <Nav builds={this.state.builds} />
         <Context.Provider value={contextValue}>
           <main className='App'>
-            <Route
-              exact path='/'
-              component={Landing}
-            />
-            <Route
-              path='/build-form'
-              component={BuildForm}
-            />
-            <Route
-              path='/create-account'
-              component={CreateAccount}
-            />
-            <Route
-              path='/login'
-              component={Login}
-            />
-            <Route
-            exact path='/:user_id/builds'
-            render = {(routeProps) =>
-              <ListBuild builds={this.state.builds} routeProps={routeProps}/>
-            }
-            />
-            <Route
-              path='/:user_id/builds/:id'
-              render={() =>
-                <ViewBuild builds={this.state.builds} deleteBuild={this.deleteBuild}/>
-              }
-            />
+            <Switch>
+              <PublicOnlyRoute
+                exact path='/'
+                component={Landing}
+              />
+              <PrivateRoute
+                path={'/build-form'}
+                component={BuildForm}
+              />
+              <PublicOnlyRoute
+                path={'/register'}
+                component={CreateAccount}
+              />
+              <PublicOnlyRoute
+                path={'/login'}
+                component={Login}
+              />
+              <PrivateRoute
+                exact path={'/builds'}
+                component={ListBuild}
+              />
+              <PrivateRoute
+                path={'/builds/:build_id'}
+                component={ViewBuild}
+              />
+            </Switch>
           </main>
         </Context.Provider>
       </div>

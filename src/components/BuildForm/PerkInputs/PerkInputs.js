@@ -4,7 +4,7 @@ import './PerkInputs.css'
 function PerkInputs(props) {
   return props.perks.map(stat => {
     const statVal = props.state.stats.filter( s =>
-      s.title === stat.stat 
+      s.title === stat.stat
     )[0].value
 
     return (
@@ -18,12 +18,12 @@ function PerkInputs(props) {
                   {perk.ranked.map(rank => {
                     return (
                       <p>Rank {rank.rank}: {rank.description}</p>
-                      ) 
+                      )
                     })}
                 </div>
               </label>
-              <select 
-                id={perk.name} 
+              <select
+                id={perk.name}
                 className='perkInput'
                 placeholder={'choose a rank'}
                 disabled={
@@ -34,7 +34,7 @@ function PerkInputs(props) {
                 <option id={`${perk.name}1`} value='0'>Choose a rank</option>
                 {perk.ranked.map(rank => {
                   return (
-                  <option value={rank.rank}>Rank {rank.rank}</option>
+                  <option value={parseInt(rank.rank)}>Rank {rank.rank}</option>
                   )
                 })}
               </select>
@@ -52,7 +52,7 @@ PerkInputs.defaultProps = {
       stat: '',
       perks: [
         {
-          rank: 1, 
+          rank: 1,
           name: '',
           ranks: 1,
           ranked: [

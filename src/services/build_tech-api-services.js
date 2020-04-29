@@ -1,11 +1,11 @@
-import TokenService from '../services/tokeen-service'
+import TokenService from '../services/token-service'
 import config from '../config'
 
 const BuildTechApiService = {
   getBuilds() {
     return fetch(`${config.API_BASE_URL}/builds`, {
       headers: {
-        'authorization',`Bearer ${TokenService.getAuthToken()}`
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
       },
     })
       .then(res =>
@@ -15,7 +15,7 @@ const BuildTechApiService = {
       )
   },
   getBuildById(buildId) {
-    return fetch(`${config.API_BASE_URL}/builds/${buildId}`. {
+    return fetch(`${config.API_BASE_URL}/builds/${buildId}`, {
       headers: {
         'authorization': `Bearer ${TokenService.getAuthToken()}`
       },
@@ -28,6 +28,7 @@ const BuildTechApiService = {
   },
   postBuild(build) {
     return fetch(`${config.API_BASE_URL}/builds`, {
+      method: 'POST',
       headers: {
         'content-type': 'application/json',
         'authorization': `Bearer ${TokenService.getAuthToken()}`,
@@ -40,8 +41,10 @@ const BuildTechApiService = {
     return fetch(`${config.API_BASE_URL}/builds/${buildId}`, {
       method: 'DELETE',
       headers: {
-        'authorization': `Bearer ${TokenService.getAuthToken()},`
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`,
       },
     })
   },
 }
+
+export default BuildTechApiService

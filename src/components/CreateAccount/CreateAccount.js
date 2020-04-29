@@ -34,9 +34,7 @@ class CreatAccount extends React.Component {
         password.value = ''
         this.handleSuccessfulNewUser()
       })
-      .catch(res => {
-        this.setState({ error: res.error})
-      })
+      .catch(res => console.log(res.error))
   }
 
   validateEmail() {

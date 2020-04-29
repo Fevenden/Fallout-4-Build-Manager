@@ -3,6 +3,8 @@ import './BuildForm.css'
 import Context from '../../context/context'
 import PerkInputs from './PerkInputs/PerkInputs'
 import StatInputs from './StatInputs/StatInputs'
+import BuildTechApiService from '../../services/build_tech-api-services'
+import TokenService from '../../services/token-service'
 import store from './buildStore'
 
 class BuildForm extends React.Component {
@@ -38,7 +40,7 @@ class BuildForm extends React.Component {
             required_level: val + stat_total
           })
         } else {
-          val = val + parseInt(perk.rank)
+          val = val + parseInt(perk.perk_rank)
           this.setState({
             ...state,
             required_level: val + state.stat_total
@@ -117,11 +119,11 @@ class BuildForm extends React.Component {
       this.updateRequiredLevel(stateCopy)
     } else {
       const p = {
-        stat: s,
+        stat_title: s,
         title: perk.name,
-        rank: v,
-        description: perk.ranked[ridx].description,
-        statRank: perk.rank
+        perk_rank: v,
+        perk_description: perk.ranked[ridx].description,
+        stat_rank: perk.rank
       }
       const stateCopy = Object.assign({}, this.state)
       stateCopy.stats[sidx].perks = stateCopy.stats[sidx].perks.slice()
@@ -131,26 +133,38 @@ class BuildForm extends React.Component {
     }
   }
 
-  handleCreateBuild(e) {
+  handleSuccessfulSubmit(build) {
+    this.props.history.push(`/builds`)
+  }
+
+  submitBuild(e) {
     e.preventDefault()
-    const randomNum = Math.floor(Math.random() * Math.floor(100000))
     const build = {
-      id: randomNum,
-      user_id: this.context.active_user.id,
       title: this.state.title,
+      required_level: this.state.required_level,
       description: this.state.description,
-      stats: this.state.stats,
-      perks: this.state.perks
+      stats: this.state.stats.map(stat => {
+        return {
+          stat_value: stat.value,
+          title: stat.title,
+          perks: stat.perks
+        }
+      })
     }
 
-    this.context.addBuild(build)
-    this.props.history.push(`/${build.user_id}/builds`)
+    if(!TokenService.hasAuthToken()) {
+      this.props.history.push(`/login`)
+    }
+
+    BuildTechApiService.postBuild(build)
+      .then(this.handleSuccessfulSubmit(build))
+      .catch(console.log)
   }
 
   clickCancel(e) {
     e.preventDefault()
     const userId = this.context.active_user.id
-    this.props.history.push(`/${userId}/builds`)
+    this.props.history.push(`/builds`)
   }
 
   render() {
@@ -195,7 +209,7 @@ class BuildForm extends React.Component {
           </fieldset>
           <div>
             <button onClick={e => this.clickCancel(e)}>Cancel</button>
-            <button onClick={e => this.handleCreateBuild(e)}>Create Build</button>
+            <button onClick={e => this.submitBuild(e)}>Create Build</button>
           </div>
         </form>
 

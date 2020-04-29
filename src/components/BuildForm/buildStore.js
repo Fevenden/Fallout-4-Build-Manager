@@ -2,7 +2,7 @@ export default {
   title: '',
   description: '',
   points: 21,
-  perk_total: 0, 
+  perk_total: 0,
   stat_total: 0,
   required_level: 1,
   stats: [
@@ -56,34 +56,4 @@ export default {
       perks: []
     }
   ]
-  // perks: [
-    // {
-    //   stat: 'strength',
-    //   perks: []
-    // },
-    // {
-    //   stat: 'perception',
-    //   perks: []
-    // },
-    // {
-    //   stat: 'endurance',
-    //   perks: []
-    // },
-    // {
-    //   stat: 'charisma',
-    //   perks:[]
-    // },
-    // {
-    //   stat: 'intelligence',
-    //   perks: []
-    // },
-    // {
-    //   stat: 'agility',
-    //   perks:[]
-    // },
-    // {
-    //   stat: 'luck',
-    //   perks: []
-    // }
-  // ]
 }

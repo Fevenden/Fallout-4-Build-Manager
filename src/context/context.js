@@ -1,16 +1,13 @@
 import React from 'react'
 
 const Context = React.createContext({
-  active_user: {},
-  users: [],
   builds: [],
-  stats: [],
+  build: [],
   perks: [],
-  addBuild: () => {},
-  setActiveUser: () => {},
-  addUser: () => {},
+  setBuild: () => {},
   deleteBuild: () => {},
-  deleteUser: () => {}
+  clearBuild: () => {},
+  setBuilds: () => {},
 })
 
 export default Context

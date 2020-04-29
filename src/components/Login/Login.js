@@ -28,77 +28,12 @@ class Login extends React.Component {
       .then(res => {
         username.value = ''
         password.value = ''
-        // TokenService.saveAuthToken(res.authToken)
         this.onLoginSuccess()
       })
       .catch(res => {
         this.setState({error: res.error})
       })
   }
-
-  // updateUsername(username) {
-  //   this.setState({
-  //     username: {
-  //       value: username,
-  //       touched: true
-  //     }
-  //   })
-  // }
-
-  // updatePassword(password) {
-  //   this.setState({
-  //     password: {
-  //       value: password,
-  //       touched: true
-  //     }
-  //   })
-  // }
-
-  // validatePassword = (userPassword, password) => {
-  //   if(userPassword !== password) {
-  //     return this.setState({
-  //       err: 'Username or password incorrect, try again'
-  //     })
-  //   } else {
-  //     return this.setState({
-  //       err: null
-  //     })
-  //   }
-  // }
-
-  // clickLogin(e) {
-  //   e.preventDefault()
-  //   const { username, password } = this.state
-  //   const users = this.context.users.filter(user =>
-  //     user.username === username.value
-  //   )
-  //   const user = users[0]
-
-  //   if (user === undefined) {
-  //     return this.setState({
-  //       err: 'Username or password incorrect, try again'
-  //     })
-  //   } else {
-  //     this.setState({
-  //       err: null
-  //     })
-  //   }
-
-  //   if (user.password !== password.value) {
-  //     return this.setState({
-  //       err: 'Username or password incorrect, try again'
-  //     })
-  //   } else {
-  //      this.setState({
-  //       err: null
-  //     })
-  //   }
-
-  //   if(this.state.err === null) {
-  //     this.context.setActiveUser(user)
-  //     this.props.history.push(`/${user.id}/builds`)
-  //   }
-  // }
 
   clickCancel(e) {
     e.preventDefault()
