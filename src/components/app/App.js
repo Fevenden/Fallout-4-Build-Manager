@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import Nav from '../Nav/Nav'
 import Landing from '../Landing/Landing'
 import PublicOnlyRoute from '../utils/PublicOnlyRoute'
@@ -14,6 +14,7 @@ import perks from '../../stores/perks-store'
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-services'
 import IdleService from '../../services/idle-service'
+import NotFound from '../notFound/NotFound'
 import './App.css'
 
 class App extends React.Component {
@@ -123,6 +124,9 @@ class App extends React.Component {
               <PrivateRoute
                 path={'/builds/:build_id'}
                 component={ViewBuild}
+              />
+              <Route
+                component={NotFound}
               />
             </Switch>
           </main>
