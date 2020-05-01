@@ -21,7 +21,8 @@ function PerkInputs(props) {
                     : 'tooltip'
                 }
                 >
-                  {perk.rank}: {perk.name}
+                <img src={`../../${perk.img}`}/>
+                {perk.rank}: {perk.name}
                 <div className='tooltiptext'>
                   {perk.ranked.map(rank => {
                     return (

@@ -1,3 +1,4 @@
+
 export default [
     {
       stat: 'strength',
@@ -5,7 +6,7 @@ export default [
           {
             rank: 1,
             name: 'Iron Fist',
-            img: 'iron-fist.png',
+            img: 'images/Strength/StrLVL1.png',
             ranks: 5,
             ranked: [
               {
@@ -761,7 +762,7 @@ export default [
                      rank: 4,
                      level: 50,
                      description: 'Rad damage will now begin to slowly heal, restoring health in the process. (Nuka-World DLC)'
-                 } 
+                 }
               ]
           },
           {
