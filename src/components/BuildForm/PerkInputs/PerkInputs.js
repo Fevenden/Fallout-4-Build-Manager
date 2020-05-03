@@ -1,4 +1,5 @@
 import React from 'react'
+// import img from '../../../images/strength/StrLVL1.png'
 import './PerkInputs.css'
 
 function PerkInputs(props) {
@@ -21,7 +22,7 @@ function PerkInputs(props) {
                     : 'tooltip'
                 }
                 >
-                <img src={`../../${perk.img}`}/>
+                <img src={perk.img} className='perkImg'/> 
                 {perk.rank}: {perk.name}
                 <div className='tooltiptext'>
                   {perk.ranked.map(rank => {

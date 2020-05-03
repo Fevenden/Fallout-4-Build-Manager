@@ -1,3 +1,73 @@
+import strlvl1 from '../images/strength/StrLVL1.png'
+import strlvl2 from '../images/strength/StrLVL2.png'
+import strlvl3 from '../images/strength/StrLVL3.png'
+import strlvl4 from '../images/strength/StrLVL4.png'
+import strlvl5 from '../images/strength/StrLVL5.png'
+import strlvl6 from '../images/strength/StrLVL6.png'
+import strlvl7 from '../images/strength/StrLVL7.png'
+import strlvl8 from '../images/strength/StrLVL8.png'
+import strlvl9 from '../images/strength/StrLVL9.png'
+import strlvl10 from '../images/strength/StrLVL10.png'
+import endlvl1 from '../images/endurance/EndLVL1.png'
+import endlvl2 from '../images/endurance/EndLVL2.png'
+import endlvl3 from '../images/endurance/EndLVL3.png'
+import endlvl4 from '../images/endurance/EndLVL4.png'
+import endlvl5 from '../images/endurance/EndLVL5.png'
+import endlvl6 from '../images/endurance/EndLVL6.png'
+import endlvl7 from '../images/endurance/EndLVL7.png'
+import endlvl8 from '../images/endurance/EndLVL8.png'
+import endlvl9 from '../images/endurance/EndLVL9.png'
+import endlvl10 from '../images/endurance/EndLVL10.png'
+import perlvl1 from '../images/perception/PerLVL1.png'
+import perlvl2 from '../images/perception/PerLVL2.png'
+import perlvl3 from '../images/perception/PerLVL3.png'
+import perlvl4 from '../images/perception/PerLVL4.png'
+import perlvl5 from '../images/perception/PerLVL5.png'
+import perlvl6 from '../images/perception/PerLVL6.png'
+import perlvl7 from '../images/perception/PerLVL7.png'
+import perlvl8 from '../images/perception/PerLVL8.png'
+import perlvl9 from '../images/perception/PerLVL9.png'
+import perlvl10 from '../images/perception/PerLVL10.png'
+import chlvl1 from '../images/charisma/chlvl1.png'
+import chlvl2 from '../images/charisma/chlvl2.png'
+import chlvl3 from '../images/charisma/chlvl3.png'
+import chlvl4 from '../images/charisma/chlvl4.png'
+import chlvl5 from '../images/charisma/chlvl5.png'
+import chlvl6 from '../images/charisma/chlvl6.png'
+import chlvl7 from '../images/charisma/chlvl7.png'
+import chlvl8 from '../images/charisma/chlvl8.png'
+import chlvl9 from '../images/charisma/chlvl9.png'
+import chlvl10 from '../images/charisma/chlvl10.png'
+import inlvl1 from '../images/intelligence/IntLVL1.png'
+import inlvl2 from '../images/intelligence/IntLVL2.png'
+import inlvl3 from '../images/intelligence/IntLVL3.png'
+import inlvl4 from '../images/intelligence/IntLVL4.png'
+import inlvl5 from '../images/intelligence/IntLVL5.png'
+import inlvl6 from '../images/intelligence/IntLVL6.png'
+import inlvl7 from '../images/intelligence/IntLVL7.png'
+import inlvl8 from '../images/intelligence/IntLVL8.png'
+import inlvl9 from '../images/intelligence/IntLVL9.png'
+import inlvl10 from '../images/intelligence/IntLVL10.png'
+import aglvl1 from '../images/agility/aglvl1.png'
+import aglvl2 from '../images/agility/aglvl2.png'
+import aglvl3 from '../images/agility/aglvl3.png'
+import aglvl4 from '../images/agility/aglvl4.png'
+import aglvl5 from '../images/agility/aglvl5.png'
+import aglvl6 from '../images/agility/aglvl6.png'
+import aglvl7 from '../images/agility/aglvl7.png'
+import aglvl8 from '../images/agility/aglvl8.png'
+import aglvl9 from '../images/agility/aglvl9.png'
+import aglvl10 from '../images/agility/aglvl10.png'
+import lulvl1 from '../images/luck/LuckLVL1.png'
+import lulvl2 from '../images/luck/LuckLVL2.png'
+import lulvl3 from '../images/luck/LuckLVL3.png'
+import lulvl4 from '../images/luck/LuckLVL4.png'
+import lulvl5 from '../images/luck/LuckLVL5.png'
+import lulvl6 from '../images/luck/LuckLVL6.png'
+import lulvl7 from '../images/luck/LuckLVL7.png'
+import lulvl8 from '../images/luck/LuckLVL8.png'
+import lulvl9 from '../images/luck/LuckLVL9.png'
+import lulvl10 from '../images/luck/LuckLVL10.png'
 
 export default [
     {
@@ -6,7 +76,7 @@ export default [
           {
             rank: 1,
             name: 'Iron Fist',
-            img: 'images/Strength/StrLVL1.png',
+            img: strlvl1,
             ranks: 5,
             ranked: [
               {
@@ -39,7 +109,7 @@ export default [
           {
               rank: 2,
               name: 'Big Leagues',
-              img: 'big-leagues.png',
+              img: strlvl2,
               ranks: 5,
               ranked: [
                   {
@@ -72,7 +142,7 @@ export default [
           {
               rank: 3,
               name: 'Armorer',
-              img: 'armorer.png',
+              img: strlvl3,
               ranks: 4,
               ranked: [
                   {
@@ -100,7 +170,7 @@ export default [
           {
               rank: 4,
               name: 'Blacksmith',
-              img: 'blacksmith.png',
+              img: strlvl4,
               ranks: 3,
               ranked: [
                   {
@@ -123,7 +193,7 @@ export default [
           {
               rank: 5,
               name: 'Heavy Gunner',
-              img: 'heavy-gunner.png',
+              img: strlvl5,
               ranks: 5,
               ranked: [
                   {
@@ -156,7 +226,7 @@ export default [
           {
               rank: 6,
               name: 'Strong Back',
-              img: 'strong-back.png',
+              img: strlvl6,
               ranks: 5,
               ranked: [
                   {
@@ -189,7 +259,7 @@ export default [
           {
               rank: 7,
               name: 'Steady Aim',
-              img: 'steady-aim.png',
+              img: strlvl7,
               ranks: 3,
               ranked: [
                   {
@@ -212,7 +282,7 @@ export default [
           {
               rank: 8,
               name: 'Basher',
-              img: 'basher.png',
+              img: strlvl8,
               ranks: 4,
               ranked: [
                   {
@@ -240,7 +310,7 @@ export default [
           {
               rank: 9,
               name: 'Rooted',
-              img: 'rooted.png',
+              img: strlvl9,
               ranks: 3,
               ranked: [
                   {
@@ -263,7 +333,7 @@ export default [
           {
               rank: 10,
               name: 'Pain Train',
-              img: 'pain-train.png',
+              img: strlvl10,
               ranks: 3,
               ranked: [
                   {
@@ -291,7 +361,7 @@ export default [
           {
               rank: 1,
               name: 'Pickpocket',
-              img: 'pickpocket.png',
+              img: perlvl1,
               ranks: 4,
               ranked: [
                   {
@@ -319,7 +389,7 @@ export default [
           {
               rank: 2,
               name: 'Rifleman',
-              img: 'rifleman.png',
+              img: perlvl2,
               ranks: 5,
               ranked: [
                   {
@@ -352,7 +422,7 @@ export default [
           {
               rank: 3,
               name: 'Awareness',
-              img: 'awareness.png',
+              img: perlvl3,
               ranks: 2,
               ranked: [
                   {
@@ -370,7 +440,7 @@ export default [
           {
               rank: 4,
               name: 'Locksmith',
-              img: 'locksmith.png',
+              img: perlvl4,
               ranks: 4,
               ranked: [
                   {
@@ -398,7 +468,7 @@ export default [
           {
               rank: 5,
               name: 'Demolition Expert',
-              img: 'demolition-expert.png',
+              img: perlvl5,
               ranks: 4,
               ranked: [
                   {
@@ -426,7 +496,7 @@ export default [
           {
               rank: 6,
               name: 'Night Person',
-              img: 'night-person.png',
+              img: perlvl6,
               ranks: 3,
               ranked: [
                   {
@@ -449,7 +519,7 @@ export default [
           {
               rank: 7,
               name: 'Refractor',
-              img: 'refractor.png',
+              img: perlvl7,
               ranks: 5,
               ranked: [
                   {
@@ -482,7 +552,7 @@ export default [
           {
               rank: 8,
               name: 'Sniper',
-              img: 'sniper.png',
+              img: perlvl8,
               ranks: 3,
               ranked: [
                   {
@@ -505,7 +575,7 @@ export default [
           {
               rank: 9,
               name: 'Penetrator',
-              img: 'penetrator.png',
+              img: perlvl9,
               ranks: 2,
               ranked: [
                   {
@@ -523,7 +593,7 @@ export default [
           {
               rank: 10,
               name: 'Concentrated Fire',
-              img: 'concentrated-fire.png',
+              img: perlvl10,
               ranks: 3,
               ranked: [
                   {
@@ -551,7 +621,7 @@ export default [
           {
               rank: 1,
               name: 'Toughness',
-              img: 'toughness.png',
+              img: endlvl1,
               ranks: 5,
               ranked: [
                   {
@@ -584,7 +654,7 @@ export default [
           {
               rank: 2,
               name: 'Lead Belly',
-              img: 'lead-belly.png',
+              img: endlvl2,
               ranks: 3,
               ranked: [
                  {
@@ -607,7 +677,7 @@ export default [
           {
               rank: 3,
               name: 'Life Giver',
-              img: 'life-giver.png',
+              img: endlvl3,
               ranks: 3,
               ranked: [
                  {
@@ -630,7 +700,7 @@ export default [
           {
               rank: 4,
               name: 'Chem Resistant',
-              img: 'chem-resistant.png',
+              img: endlvl4,
               ranks: 2,
               ranked: [
                  {
@@ -648,7 +718,7 @@ export default [
           {
               rank: 5,
               name: 'Aquaboy',
-              img: 'aquaboy.png',
+              img: endlvl5,
               ranks: 2,
               ranked: [
                  {
@@ -666,7 +736,7 @@ export default [
           {
               rank: 6,
               name: 'Rad Resistant',
-              img: 'rad-resistant.png',
+              img: endlvl6,
               ranks: 4,
               ranked: [
                  {
@@ -694,7 +764,7 @@ export default [
           {
               rank: 7,
               name: 'Adamantium Skeleton',
-              img: 'adamantium-skeleton.png',
+              img: endlvl7,
               ranks: 3,
               ranked: [
                  {
@@ -717,7 +787,7 @@ export default [
           {
               rank: 8,
               name: 'Cannibal',
-              img: 'cannibal.png',
+              img: endlvl8,
               ranks: 3,
               ranked: [
                  {
@@ -740,7 +810,7 @@ export default [
           {
               rank: 9,
               name: 'Ghoulish',
-              img: 'ghoulish.png',
+              img: endlvl9,
               ranks: 4,
               ranked: [
                  {
@@ -768,7 +838,7 @@ export default [
           {
               rank: 10,
               name: 'Solar Powered',
-              img: 'solar-powered.png',
+              img: endlvl10,
               ranks: 3,
               ranked: [
                  {
@@ -796,7 +866,7 @@ export default [
           {
               rank: 1,
               name: 'Cap Collector',
-              img: 'cap-collector.png',
+              img: chlvl1,
               ranks: 3,
               ranked: [
                   {
@@ -819,7 +889,7 @@ export default [
           {
               rank: 2,
               name: 'Lady Killer',
-              img: 'lady-killer-man-hunter.png',
+              img: chlvl2,
               ranks: 3,
               ranked: [
                   {
@@ -842,7 +912,7 @@ export default [
           {
               rank: 3,
               name: 'Lone Wanderer',
-              img: 'lone-wanderer.png',
+              img: chlvl3,
               ranks: 4,
               ranked: [
                   {
@@ -870,7 +940,7 @@ export default [
           {
               rank: 4,
               name: 'Attack Dog',
-              img: 'attack-dog.png',
+              img: chlvl4,
               ranks: 4,
               ranked: [
                   {
@@ -898,7 +968,7 @@ export default [
           {
               rank: 5,
               name: 'Animal Friend',
-              img: 'animal-friend.png',
+              img: chlvl5,
               ranks: 3,
               ranked: [
                   {
@@ -921,7 +991,7 @@ export default [
           {
               rank: 6,
               name: 'Local Leader',
-              img: 'local-leader.png',
+              img: chlvl6,
               ranks: 2,
               ranked: [
                   {
@@ -939,7 +1009,7 @@ export default [
           {
               rank: 7,
               name: 'Party Boy',
-              img: 'party-boy-party-girl.png',
+              img: chlvl7,
               ranks: 3,
               ranked: [
                   {
@@ -962,7 +1032,7 @@ export default [
           {
               rank: 8,
               name: 'Inspiration',
-              img: 'inspiration.png',
+              img: chlvl8,
               ranks: 3,
               ranked: [
                   {
@@ -985,7 +1055,7 @@ export default [
           {
               rank: 9,
               name: 'Wasteland Whisperer',
-              img: 'wasteland-whisperer.png',
+              img: chlvl9,
               ranks: 3,
               ranked: [
                   {
@@ -1008,7 +1078,7 @@ export default [
           {
               rank: 10,
               name: 'Intimidation',
-              img: 'intimidation.png',
+              img: chlvl10,
               ranks: 3,
               ranked: [
                   {
@@ -1036,7 +1106,7 @@ export default [
           {
               rank: 1,
               name: 'V.A.N.S.',
-              img: 'vans.png',
+              img: inlvl1,
               ranks: 2,
               ranked: [
                   {
@@ -1054,7 +1124,7 @@ export default [
           {
               rank: 2,
               name: 'Medic',
-              img: 'medic.png',
+              img: inlvl2,
               ranks: 4,
               ranked: [
                   {
@@ -1082,7 +1152,7 @@ export default [
           {
               rank: 3,
               name: 'Gun Nut',
-              img: 'gun-nut.png',
+              img: inlvl3,
               ranks: 4,
               ranked: [
                   {
@@ -1110,7 +1180,7 @@ export default [
           {
               rank: 4,
               name: 'Hacker',
-              img: 'hacker.png',
+              img: inlvl4,
               ranks: 4,
               ranked: [
                   {
@@ -1138,7 +1208,7 @@ export default [
           {
               rank: 5,
               name: 'Scrapper',
-              img: 'scrapper.png',
+              img: inlvl5,
               ranks: 3,
               ranked: [
                   {
@@ -1161,7 +1231,7 @@ export default [
           {
               rank: 6,
               name: 'Science',
-              img: 'science.png',
+              img: inlvl6,
               ranks: 4,
               ranked: [
                   {
@@ -1189,7 +1259,7 @@ export default [
           {
               rank: 7,
               name: 'Chemist',
-              img: 'chemist.png',
+              img: inlvl7,
               ranks: 4,
               ranked: [
                   {
@@ -1217,7 +1287,7 @@ export default [
           {
               rank: 8,
               name: 'Robotics Expert',
-              img: 'robotics-expert.png',
+              img: inlvl8,
               ranks: 3,
               ranked: [
                   {
@@ -1240,7 +1310,7 @@ export default [
           {
               rank: 9,
               name: 'Nuclear Physicist',
-              img: 'nuclear-physicist.png',
+              img: inlvl9,
               ranks: 3,
               ranked: [
                   {
@@ -1263,7 +1333,7 @@ export default [
           {
               rank: 10,
               name: 'Nerd Rage',
-              img: 'nerd-rage.png',
+              img: inlvl10,
               ranks: 3,
               ranked: [
                   {
@@ -1291,7 +1361,7 @@ export default [
           {
               rank: 1,
               name: 'Gunslinger',
-              img: 'gunslinger.png',
+              img: inlvl1,
               ranks: 5,
               ranked: [
                   {
@@ -1324,7 +1394,7 @@ export default [
           {
               rank: 2,
               name: 'Commando',
-              img: 'commando.png',
+              img: inlvl2,
               ranks: 5,
               ranked: [
                   {
@@ -1357,7 +1427,7 @@ export default [
           {
               rank: 3,
               name: 'Sneak',
-              img: 'sneak.png',
+              img: inlvl3,
               ranks: 5,
               ranked: [
                   {
@@ -1390,7 +1460,7 @@ export default [
           {
               rank: 4,
               name: 'Mister Sandman',
-              img: 'mister-sandman.png',
+              img: inlvl4,
               ranks: 3,
               ranked: [
                   {
@@ -1413,7 +1483,7 @@ export default [
           {
               rank: 5,
               name: 'Action Boy',
-              img: 'action-boy-action-girl.png',
+              img: inlvl5,
               ranks: 3,
               ranked: [
                   {
@@ -1436,7 +1506,7 @@ export default [
           {
               rank: 6,
               name: 'Moving Target',
-              img: 'moving-target.png',
+              img: inlvl6,
               ranks: 3,
               ranked: [
                   {
@@ -1459,7 +1529,7 @@ export default [
           {
               rank: 7,
               name: 'Ninja',
-              img: 'ninja.png',
+              img: inlvl7,
               ranks: 3,
               ranked: [
                   {
@@ -1482,7 +1552,7 @@ export default [
           {
               rank: 8,
               name: 'Quick Hands',
-              img: 'quick-hands.png',
+              img: inlvl9,
               ranks: 3,
               ranked: [
                   {
@@ -1505,7 +1575,7 @@ export default [
           {
               rank: 9,
               name: 'Blitz',
-              img: 'blitz.png',
+              img: inlvl9,
               ranks: 2,
               ranked: [
                   {
@@ -1523,7 +1593,7 @@ export default [
           {
               rank: 10,
               name: 'Gun Fu',
-              img: 'gun-fu.png',
+              img: inlvl10,
               ranks: 3,
               ranked: [
                   {
@@ -1551,7 +1621,7 @@ export default [
           {
               rank: 1,
               name: 'Fortune Finder',
-              img: 'fortune-finder.png',
+              img: lulvl1,
               ranks: 4,
               ranked: [
                   {
@@ -1579,7 +1649,7 @@ export default [
           {
               rank: 2,
               name: 'Scrounger',
-              img: 'scrounger.png',
+              img: lulvl2,
               ranks: 4,
               ranked: [
                   {
@@ -1607,7 +1677,7 @@ export default [
           {
               rank: 3,
               name: 'Bloody Mess',
-              img: 'bloody-mess.png',
+              img: lulvl3,
               ranks: 4,
               ranked: [
                   {
@@ -1635,7 +1705,7 @@ export default [
           {
               rank: 4,
               name: 'Mysterious Stranger',
-              img: 'mysterious-stranger.png',
+              img: lulvl4,
               ranks: 4,
               ranked: [
                   {
@@ -1663,7 +1733,7 @@ export default [
           {
               rank: 5,
               name: 'Idiot Savant',
-              img: 'idiot-savant.png',
+              img: lulvl5,
               ranks: 3,
               ranked: [
                   {
@@ -1686,7 +1756,7 @@ export default [
           {
               rank: 6,
               name: 'Better Criticals',
-              img: 'better-criticals.png',
+              img: lulvl6,
               ranks: 3,
               ranked: [
                   {
@@ -1709,7 +1779,7 @@ export default [
           {
               rank: 7,
               name: 'Critical Banker',
-              img: 'critical-banker.png',
+              img: lulvl7,
               ranks: 4,
               ranked: [
                   {
@@ -1737,7 +1807,7 @@ export default [
           {
               rank: 8,
               name: 'Grim Reaper\'s Sprint',
-              img: 'grim-reapers-sprint.png',
+              img: lulvl8,
               ranks: 3,
               ranked: [
                   {
@@ -1760,7 +1830,7 @@ export default [
           {
               rank: 9,
               name: 'Four Leaf Clover',
-              img: 'four-leaf-clover.png',
+              img: lulvl9,
               ranks: 4,
               ranked: [
                   {
@@ -1788,7 +1858,7 @@ export default [
           {
               rank: 10,
               name: 'Ricochet',
-              img: 'ricochet.png',
+              img: lulvl10,
               ranks: 3,
               ranked: [
                   {
