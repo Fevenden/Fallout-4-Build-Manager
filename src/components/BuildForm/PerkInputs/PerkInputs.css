@@ -20,6 +20,10 @@
     color: blue;
 }
 
+.hidden{
+  display: none;
+}
+
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }

@@ -68,10 +68,18 @@ import lulvl7 from '../images/luck/LuckLVL7.png'
 import lulvl8 from '../images/luck/LuckLVL8.png'
 import lulvl9 from '../images/luck/LuckLVL9.png'
 import lulvl10 from '../images/luck/LuckLVL10.png'
+import agmain from '../images/agility/agilitymain.png'
+import chmain from '../images/charisma/charmain.png'
+import enmain from '../images/endurance/EnduranceMAIN.png'
+import intmain from '../images/intelligence/IntelligenceMAIN.png'
+import lumain from '../images/luck/LuckMAIN.png'
+import permain from '../images/perception/PerceptionMAIN.png'
+import strmain from '../images/strength/StrengthMAIN.png'
 
 export default [
     {
       stat: 'strength',
+      img: strmain,
       perks: [
           {
             rank: 1,
@@ -357,6 +365,7 @@ export default [
   },
   {
       stat: 'perception',
+      img: permain,
       perks: [
           {
               rank: 1,
@@ -617,6 +626,7 @@ export default [
   },
   {
       stat: 'endurance',
+      img: enmain,
       perks: [
           {
               rank: 1,
@@ -862,6 +872,7 @@ export default [
   },
   {
       stat: 'charisma',
+      img: chmain,
       perks: [
           {
               rank: 1,
@@ -1102,6 +1113,7 @@ export default [
   },
   {
       stat: 'intelligence',
+      img: intmain,
       perks: [
           {
               rank: 1,
@@ -1357,11 +1369,12 @@ export default [
   },
   {
       stat: 'agility',
+      imhg: agmain,
       perks: [
           {
               rank: 1,
               name: 'Gunslinger',
-              img: inlvl1,
+              img: aglvl1,
               ranks: 5,
               ranked: [
                   {
@@ -1394,7 +1407,7 @@ export default [
           {
               rank: 2,
               name: 'Commando',
-              img: inlvl2,
+              img: aglvl2,
               ranks: 5,
               ranked: [
                   {
@@ -1427,7 +1440,7 @@ export default [
           {
               rank: 3,
               name: 'Sneak',
-              img: inlvl3,
+              img: aglvl3,
               ranks: 5,
               ranked: [
                   {
@@ -1460,7 +1473,7 @@ export default [
           {
               rank: 4,
               name: 'Mister Sandman',
-              img: inlvl4,
+              img: aglvl4,
               ranks: 3,
               ranked: [
                   {
@@ -1483,7 +1496,7 @@ export default [
           {
               rank: 5,
               name: 'Action Boy',
-              img: inlvl5,
+              img: aglvl5,
               ranks: 3,
               ranked: [
                   {
@@ -1506,7 +1519,7 @@ export default [
           {
               rank: 6,
               name: 'Moving Target',
-              img: inlvl6,
+              img: aglvl6,
               ranks: 3,
               ranked: [
                   {
@@ -1529,7 +1542,7 @@ export default [
           {
               rank: 7,
               name: 'Ninja',
-              img: inlvl7,
+              img: aglvl7,
               ranks: 3,
               ranked: [
                   {
@@ -1552,7 +1565,7 @@ export default [
           {
               rank: 8,
               name: 'Quick Hands',
-              img: inlvl9,
+              img: aglvl9,
               ranks: 3,
               ranked: [
                   {
@@ -1575,7 +1588,7 @@ export default [
           {
               rank: 9,
               name: 'Blitz',
-              img: inlvl9,
+              img: aglvl9,
               ranks: 2,
               ranked: [
                   {
@@ -1593,7 +1606,7 @@ export default [
           {
               rank: 10,
               name: 'Gun Fu',
-              img: inlvl10,
+              img: aglvl10,
               ranks: 3,
               ranked: [
                   {
@@ -1617,6 +1630,7 @@ export default [
   },
   {
       stat: 'luck',
+      img: lumain,
       perks: [
           {
               rank: 1,

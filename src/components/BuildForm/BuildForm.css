@@ -8,6 +8,12 @@
   justify-content: space-between;
 }
 
+.perks-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
 .form-box {
   display: flex;
   flex-direction: column;
@@ -35,4 +41,14 @@ textarea {
 #build-form {
   width: 90%;
   align-self: center;
+}
+
+.tab-bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.statheader {
+  width: 14%;
 }

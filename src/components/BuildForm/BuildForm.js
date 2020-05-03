@@ -175,12 +175,28 @@ class BuildForm extends React.Component {
     this.props.history.push(`/builds`)
   }
 
+  toggleStatPerks = (e, stat) => {
+    e.preventDefault()
+    const hide = document.getElementsByClassName('perkfield')
+    const show = document.getElementById(`${stat}-perks`)
+    const inactive = document.getElementsByClassName('statheader')
+    const active = e.currentTarget
+
+    for (let i = 0; i < hide.length; i++) {
+      hide[i].classList.add('hidden')
+    }
+    for(let j = 0; j < inactive.length; j++) {
+      inactive[j].classList.remove('active')
+    }
+    show.classList.remove('hidden')
+    active.classList.add('active')
+  }
+
   render() {
     return (
       <section className='form-box'>
         <h2>Create Build</h2>
         <p>Welcome to the build page! Here you can create a custom build and save it to your account</p>
-        <p>Perks become available as you increase your special stat.</p> <p>If you aren't sure what a Special stat or perk does just over hover it to learn more!</p>
         <p>Please enjoy your time with BuildTech. A better future, online!</p>
         <form id='build-form' onSubmit={this.submitBuild}>
           <label htmlFor='title'>Build Title:</label>
@@ -212,8 +228,18 @@ class BuildForm extends React.Component {
           </fieldset>
           <fieldset id='perks'>
             <legend>Perks</legend>
-            <p>Perks become available as you increase your special stat. The required rank for a perk is listed on the left. Perks will increase the required level regardless of the amount of Special points available.</p>
-            <PerkInputs state={this.state} perks={this.context.perks} updatePerks={this.updatePerks}/>
+            <div className='tab-bar'>
+              {
+                this.context.perks.map(p => {
+                  return (
+                    <button className='statheader' onClick={e => this.toggleStatPerks(e, p.stat)}>{p.stat.substring(0, 1)}</button>
+                  )
+                })
+              }
+            <div className='perks-container'>
+            </div>
+              <PerkInputs state={this.state} perks={this.context.perks} updatePerks={this.updatePerks} toggleStatPerks={this.toggleStatPerks}/>
+            </div>
           </fieldset>
           <div>
             <p>{this.context.error}</p>
