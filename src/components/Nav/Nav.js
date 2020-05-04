@@ -5,7 +5,7 @@ import IdleService from '../../services/idle-service'
 import './Nav.css'
 
 export default class Nav extends React.Component {
-  handleLogoutClick = () =>{
+  handleLogoutClick = () => {
     TokenService.clearAuthToken()
     TokenService.clearCallbackBeforeExpirey()
     IdleService.unRegisterIdleResets()
@@ -14,32 +14,32 @@ export default class Nav extends React.Component {
 
   renderLogoutLink() {
     return (
-      <div>
-        <Link
+      <nav>
+        <Link className='navlink'
           onClick={this.handleLogoutClick}
           to='/'
         >
         Logout
         </Link>
-      </div>
+      </nav>
     )
   }
 
   renderLoginLink() {
     return (
-      <div>
-        <Link
+      <nav>
+        <Link className='navlink'
           to='/register'
         >
           Register
         </Link>
-        {'/'}
-        <Link
+        {' '}
+        <Link className='navlink'
           to='/login'
         >
           Log in
         </Link>
-      </div>
+      </nav>
     )
   }
 
@@ -47,15 +47,13 @@ export default class Nav extends React.Component {
     return (
       <header>
         <Link to='/'>
-          <h1>BuildTech</h1>
+          <h1 className='buildTech'>BuildTech</h1>
         </Link>
-        <nav>
           {
             TokenService.hasAuthToken()
               ? this.renderLogoutLink()
               : this.renderLoginLink()
           }
-        </nav>
       </header>
     )
   }

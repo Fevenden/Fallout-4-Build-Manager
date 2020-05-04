@@ -1,9 +1,22 @@
 header {
-  background-color: lightblue;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 30px;
+  height: 50px;
   margin-bottom:20px ;
+  padding: 5px;
+  background-color: #0E599C;
+}
+
+.buildTech {
+  font-family: 'Fugaz One', cursive;
+  color: #FFDB63;
+  text-shadow: -1px 3px 2px #F04505
+}
+
+.navlink {
+  margin: 2px;
+  color: #FFDB63;
+  padding: 5px;
 }

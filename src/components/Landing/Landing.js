@@ -6,10 +6,9 @@ export default function Landing() {
   return (
     <section id='landing-box' className='box'>
       <h2>Welcome To BuildTech!</h2>
-      <p>A Fallout 4 character build manager</p>
-      <p>A better future, Online.</p>
-      <Link to='/register'>Create an account!</Link>
-      <Link to='/login'>Login to an existing account!</Link>
+      <p>A Fallout 4 character build manager. BuildTech makes it easier than ever to plan out your character builds.</p>
+      <Link to='/register' className='buttonish'>Create an account!</Link>
+      <Link to='/login' className='buttonish'>Login to an existing account!</Link>
     </section>
   )
 }
