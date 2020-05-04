@@ -1,17 +1,28 @@
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 250px;
+.tooltiptext {
+    min-width: 250px;
+    max-width: 500px;
     background-color: black;
     color: #fff;
     text-align: center;
     padding: 5px;
     border-radius: 6px;
+    left: -25px;
     position: absolute;
     z-index: 1;
 }
 
+option {
+  color: black;
+}
+
 .perkImg {
-  width: 80px
+  width: 60px;
+  border: 2px solid;
+  border: 2px solid #ff8f63;
+  margin-top: 10px;
+  border-radius: 25px;
+  padding: 5px;
+  background-color: #ffdb63;
 }
 
 .tooltip {
@@ -20,12 +31,17 @@
     color: blue;
 }
 
+.perk-label {
+  display: flex;
+  flex-direction: column;
+}
+
 .hidden{
   display: none;
 }
 
 .tooltip:hover .tooltiptext {
-    visibility: visible;
+    display: block;
 }
 
 .perkInput {
@@ -35,10 +51,20 @@
 }
 
 .perkInput:disabled {
-  background-color: white;
-  color: lightgrey;
+  opacity: 50%;
 }
 
 label.disabled {
-  color: lightgrey
+  color: lightgrey;
+  opacity: 50%
+}
+
+.perkfield {
+  display: flex;
+  flex-direction: column;
+  width: 100%
+}
+
+.perkfield.hidden {
+  display: none;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import Context from '../../context/context' 
+import Context from '../../context/context'
 import AuthApiService from '../../services/auth-api-services'
 import './CreateAccount.css'
 
@@ -45,7 +45,7 @@ class CreatAccount extends React.Component {
     return (
       <section id='create-account-box' className='box'>
         <h2>Create Account</h2>
-        <p>{this.context.error}</p>
+        <p className='error'>{this.context.error}</p>
         <form id='create-account-form' onSubmit={this.handleSubmit}>
           <label htmlFor='full_name'>Full Name:</label>
           <input
@@ -93,8 +93,8 @@ class CreatAccount extends React.Component {
           />
 
           <div>
-            <button onClick={e => this.handleClickCancel(e)}>Cancel</button>
-            <button type='submit'>
+            <button className='buttonish' onClick={e => this.handleClickCancel(e)}>Cancel</button>
+            <button className='buttonish' type='submit'>
               Create Account
             </button>
           </div>

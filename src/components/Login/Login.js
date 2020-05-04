@@ -42,11 +42,12 @@ class Login extends React.Component {
     return (
       <section className='box'>
         <h2>Login</h2>
-        <p>{this.state.error}</p>
+        <p className='error'>{this.state.error}</p>
         <form id='login-form' onSubmit={this.handleLogin}>
           <label htmlFor='login-username'>Username</label>
           <input
             type='text'
+            className='user-input'
             id='login-username'
             name='username'
             placeholder='Username'
@@ -63,8 +64,8 @@ class Login extends React.Component {
           />
 
           <div>
-            <button onClick={e => this.clickCancel(e)}>Cancel</button>
-            <button type='submit'>Login</button>
+            <button className='buttonish' onClick={e => this.clickCancel(e)}>Cancel</button>
+            <button className='buttonish' type='submit'>Login</button>
           </div>
         </form>
       </section>

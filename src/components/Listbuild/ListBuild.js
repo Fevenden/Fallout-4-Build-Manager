@@ -29,7 +29,7 @@ export default class ListBuild extends React.Component {
             : builds.map(build => {
               return (
                 <Link className='buildLink' to={`/builds/${build.id}`}>
-                  <li key={`${build.id}`} className='listed-build'>
+                  <li key={`${build.id}`} className='box'>
                     <h3> {build.title}</h3>
                     <p>{build.description}</p>
                   </li>
@@ -38,7 +38,7 @@ export default class ListBuild extends React.Component {
           })}
         </ul>
         <div>
-          <Link to={`/build-form`}><button>Create a new build</button></Link>
+          <Link className='buttonish' to={`/build-form`}>Create a new build</Link>
         </div>
       </section>
     )

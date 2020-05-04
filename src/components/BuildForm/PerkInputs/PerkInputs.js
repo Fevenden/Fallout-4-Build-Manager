@@ -10,50 +10,50 @@ function PerkInputs(props) {
     )[0].value
 
     return (
-      <section>
-        <div className='perkfield hidden' id={`${stat.stat}-perks`}>
-          {stat.perks.map(perk => {
-            return (
-              <div key={perk.name} className='perk-inputs'>
+      <div className='perkfield hidden' id={`${stat.stat}-perks`}>
+        {stat.perks.map(perk => {
+          return (
+            <div key={perk.name} className='perk-inputs'>
+              <div className='perk-label`'>
+              <img src={perk.img} className='perkImg tooltip' onClick={e => props.toggleTooltip(e, perk.name)}/>
+              <div id={`${perk.name}-tooltip`} className='tooltiptext hidden'>{
+                  perk.ranked.map(rank => {
+                    return (
+                      <p>Rank {rank.rank}: {rank.description}</p>
+                    )
+                  })}
+                </div>
                 <label
                   htmlFor={perk.name}
                   className={
                     (statVal < perk.rank)
-                      ? 'tooltip disabled'
-                      : 'tooltip'
+                      ? 'disabled'
+                      : null
                   }
                   >
-                  <img src={perk.img} className='perkImg'/>
                     {perk.name}
-                  <div className='tooltiptext'>
-                    {perk.ranked.map(rank => {
-                      return (
-                        <p>Rank {rank.rank}: {rank.description}</p>
-                        )
-                      })}
-                  </div>
                 </label>
-                <select
-                  id={perk.name}
-                  className='perkInput'
-                  placeholder={'choose a rank'}
-                  disabled={
-                    statVal < perk.rank
-                  }
-                  onChange={e => props.updatePerks(perk, e.target.value, stat.stat)}
-                >
-                  <option id={`${perk.name}1`} value='0'>Choose a rank</option>
-                  {perk.ranked.map(rank => {
-                    return (
-                    <option value={rank.rank}>Rank {rank.rank}</option>
-                    )
-                  })}
-                </select>
               </div>
-            )
+              <select
+                id={perk.name}
+                className='perkInput buttonish'
+                placeholder={'choose a rank'}
+                disabled={
+                  statVal < perk.rank
+                }
+                onChange={e => props.updatePerks(perk, e.target.value, stat.stat)}
+              >
+                <option id={`${perk.name}1`} value='0'>Choose a rank</option>
+                {perk.ranked.map(rank => {
+                  return (
+                  <option value={rank.rank}>Rank {rank.rank}</option>
+                  )
+                })}
+              </select>
+            </div>
+          )
           })}
         </div>
-      </section>
     )
   })
 }

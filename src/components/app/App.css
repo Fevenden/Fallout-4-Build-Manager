@@ -2,6 +2,7 @@
   box-sizing: border-box;
   font-size: 18px;
   font-family: 'Jost', sans-serif;
+  color: #FFDB63
 }
 
 body {
@@ -15,11 +16,20 @@ h1 {
 
  h2 {
   font-size: 26px;
-  font-family: 'Fugaz one', cursive;
+  font-family: 'Fugaz One', cursive;
+  color: #FFDB63;
+  text-shadow: -1px 3px 2px #F04505
+
 }
 
 h3 {
   font-size: 20px;
+  color: #FFDB63;
+  text-shadow: -1px 2px 2px #F04505
+}
+
+p {
+  text-shadow: -1px 1px 2px #F04505
 }
 
 main {

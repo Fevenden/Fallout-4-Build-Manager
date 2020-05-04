@@ -192,16 +192,24 @@ class BuildForm extends React.Component {
     active.classList.add('active')
   }
 
+  toggleTooltip = (e, perk) => {
+    const tooltip = document.getElementById(`${perk}-tooltip`)
+
+    tooltip.classList.contains('hidden')
+      ? tooltip.classList.remove('hidden')
+      : tooltip.classList.add('hidden')
+  }
+
   render() {
     return (
-      <section className='form-box'>
+      <section className='box'>
         <h2>Create Build</h2>
         <p>Welcome to the build page! Here you can create a custom build and save it to your account</p>
         <p>Please enjoy your time with BuildTech. A better future, online!</p>
         <form id='build-form' onSubmit={this.submitBuild}>
           <label htmlFor='title'>Build Title:</label>
           <input
-            className='text'
+            className='user-input'
             type='text'
             id='title'
             placeholder='Title'
@@ -212,7 +220,7 @@ class BuildForm extends React.Component {
           />
           <label htmlFor='description'>Description:</label>
           <textarea
-            className='text'
+            className='user-input'
             id='description'
             placeholder='describe your build'
             onChange={e => this.updateDescription(e.target.value)}
@@ -220,31 +228,31 @@ class BuildForm extends React.Component {
             rows='6'
             cols='50'
           />
-          <fieldset id='stats'>
+          <fieldset className='box' id='stats'>
           <p>SPECIAL Points: {this.state.points}</p>
           <p>Required Level: {this.state.required_level}</p>
             <legend>SPECIAL</legend>
             <StatInputs state={this.state} decreaseStat={this.decreaseStat} increaseStat={this.increaseStat}/>
           </fieldset>
-          <fieldset id='perks'>
+          <fieldset id='perks' className='box'>
             <legend>Perks</legend>
             <div className='tab-bar'>
               {
                 this.context.perks.map(p => {
                   return (
-                    <button className='statheader' onClick={e => this.toggleStatPerks(e, p.stat)}>{p.stat.substring(0, 1)}</button>
+                    <button className='statheader buttonish' onClick={e => this.toggleStatPerks(e, p.stat)}>{p.stat.substring(0, 1)}</button>
                   )
                 })
               }
-            <div className='perks-container'>
             </div>
-              <PerkInputs state={this.state} perks={this.context.perks} updatePerks={this.updatePerks} toggleStatPerks={this.toggleStatPerks}/>
+            <div className='perks-container'>
+              <PerkInputs state={this.state} perks={this.context.perks} updatePerks={this.updatePerks} toggleStatPerks={this.toggleStatPerks} toggleTooltip={this.toggleTooltip}/>
             </div>
           </fieldset>
           <div>
             <p>{this.context.error}</p>
-            <button onClick={e => this.clickCancel(e)}>Cancel</button>
-            <button type='submit'>Create Build</button>
+            <button className='buttonish' onClick={e => this.clickCancel(e)}>Cancel</button>
+            <button className='buttonish' type='submit'>Create Build</button>
           </div>
         </form>
 

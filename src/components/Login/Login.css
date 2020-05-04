@@ -6,3 +6,15 @@
 #login-form div {
   align-self: center;
 }
+
+.user-input{
+  border: 2px solid #f04805;
+  padding: 5px;
+  border-radius: 25px;
+  color: black;
+  max-width: 100%;
+}
+
+.error {
+  max-width: 70%
+}

@@ -15,7 +15,7 @@ export default class Nav extends React.Component {
   renderLogoutLink() {
     return (
       <nav>
-        <Link className='navlink'
+        <Link className='buttonish'
           onClick={this.handleLogoutClick}
           to='/'
         >
@@ -28,13 +28,13 @@ export default class Nav extends React.Component {
   renderLoginLink() {
     return (
       <nav>
-        <Link className='navlink'
+        <Link className='buttonish'
           to='/register'
         >
           Register
         </Link>
         {' '}
-        <Link className='navlink'
+        <Link className='buttonish'
           to='/login'
         >
           Log in
@@ -52,7 +52,7 @@ export default class Nav extends React.Component {
           {
             TokenService.hasAuthToken()
               ? this.renderLogoutLink()
-              : this.renderLoginLink()
+              : null
           }
       </header>
     )

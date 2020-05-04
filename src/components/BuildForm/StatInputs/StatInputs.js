@@ -16,14 +16,17 @@ function StatInputs(props) {
 
     return (
       <div className='stat-input' key={stat.index}>
-        <label htmlFor={stat.title} className='tooltip'>
-          <p className='tooltiptext'>{stat.des}</p>
+        <label htmlFor={stat.title}>
+          <div className='tooltip'>
+            <span className='buttonish'>?</span>
+            <p className='tooltiptext hidden'>{stat.des}</p>
+          </div>
           {stat.title.charAt(0).toUpperCase() + stat.title.slice(1)}:
         </label>
         <div>
-          <button className='stat-button' onClick={e => handleDecrease(e)} disabled={stat.value === 1}>-</button>
+          <button className='stat-button buttonish' onClick={e => handleDecrease(e)} disabled={stat.value === 1}>-</button>
           <span className='stat-value'> {stat.value} </span>
-          <button className='stat-button' onClick={e => handleIncrease(e)} disabled={stat.value === 10}>+</button>
+          <button className='stat-button buttonish' onClick={e => handleIncrease(e)} disabled={stat.value === 10}>+</button>
         </div>
       </div>
     )

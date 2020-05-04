@@ -7,16 +7,11 @@ header {
   margin-bottom:20px ;
   padding: 5px;
   background-color: #0E599C;
+  border-bottom: 2px solid #ff8f63;
 }
 
 .buildTech {
   font-family: 'Fugaz One', cursive;
   color: #FFDB63;
-  text-shadow: -1px 3px 2px #F04505
-}
-
-.navlink {
-  margin: 2px;
-  color: #FFDB63;
-  padding: 5px;
+  text-shadow: -1px 3px 2px #F04505;
 }
