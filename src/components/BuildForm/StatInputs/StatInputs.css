@@ -23,3 +23,7 @@ span.buttonish {
   padding: 2px;;
   margin: 0;
 }
+
+.stat-input .tooltiptext {
+  width: 25%
+}

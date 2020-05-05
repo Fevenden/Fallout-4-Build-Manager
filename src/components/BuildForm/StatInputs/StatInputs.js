@@ -15,18 +15,21 @@ function StatInputs(props) {
     }
 
     return (
-      <div className='stat-input' key={stat.index}>
-        <label htmlFor={stat.title}>
-          <div className='tooltip'>
-            <span className='buttonish'>?</span>
-            <p className='tooltiptext hidden'>{stat.des}</p>
+      <div>
+        <div className='stat-input' key={stat.index}>
+          <span className='buttonish' onClick={e => props.toggleTooltip(e, stat.title)}>?</span>
+          <div id={`${stat.title}-tooltip`} className='tooltiptext hidden'>
+            <p>{stat.des}</p>
+            <button type='button' className='buttonish' onClick={e => props.toggleTooltip(e, stat.title)}>Close</button>
           </div>
-          {stat.title.charAt(0).toUpperCase() + stat.title.slice(1)}:
-        </label>
-        <div>
-          <button className='stat-button buttonish' onClick={e => handleDecrease(e)} disabled={stat.value === 1}>-</button>
-          <span className='stat-value'> {stat.value} </span>
-          <button className='stat-button buttonish' onClick={e => handleIncrease(e)} disabled={stat.value === 10}>+</button>
+          <label htmlFor={stat.title}>
+            {stat.title.charAt(0).toUpperCase() + stat.title.slice(1)}:
+          </label>
+          <div>
+            <button className='stat-button buttonish' onClick={e => handleDecrease(e)} disabled={stat.value === 1}>-</button>
+            <span className='stat-value'> {stat.value} </span>
+            <button className='stat-button buttonish' onClick={e => handleIncrease(e)} disabled={stat.value === 10}>+</button>
+          </div>
         </div>
       </div>
     )

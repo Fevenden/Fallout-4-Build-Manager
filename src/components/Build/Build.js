@@ -3,6 +3,7 @@ import './Build.css'
 
 export default function Build(props) {
   const {title, description, stats, required_level} = props.build
+  console.log(props.perks)
 
   let perks = []
 

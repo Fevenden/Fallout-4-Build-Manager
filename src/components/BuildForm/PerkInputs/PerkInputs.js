@@ -14,26 +14,34 @@ function PerkInputs(props) {
         {stat.perks.map(perk => {
           return (
             <div key={perk.name} className='perk-inputs'>
-              <div className='perk-label`'>
-              <img src={perk.img} className='perkImg tooltip' onClick={e => props.toggleTooltip(e, perk.name)}/>
+              <img 
+                src={perk.img} 
+                alt={`${perk.name} icon`} 
+                className={
+                  statVal < perk.rank
+                    ? 'perkImg disabled'
+                    : 'perkImg'
+                } 
+                onClick={e => props.toggleTooltip(e, perk.name)}
+              />
               <div id={`${perk.name}-tooltip`} className='tooltiptext hidden'>{
                   perk.ranked.map(rank => {
                     return (
-                      <p>Rank {rank.rank}: {rank.description}</p>
+                        <p>Rank {rank.rank}: {rank.description}</p>
                     )
                   })}
+                  <button type='button' className='buttonish' onClick={e => props.toggleTooltip(e, perk.name)}>Close</button>
                 </div>
-                <label
-                  htmlFor={perk.name}
-                  className={
-                    (statVal < perk.rank)
-                      ? 'disabled'
-                      : null
-                  }
-                  >
-                    {perk.name}
-                </label>
-              </div>
+              <label
+                htmlFor={perk.name}
+                className={
+                  (statVal < perk.rank)
+                    ? 'disabled'
+                    : null
+                }
+                >
+                  {perk.name}
+              </label>
               <select
                 id={perk.name}
                 className='perkInput buttonish'

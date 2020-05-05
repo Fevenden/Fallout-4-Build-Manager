@@ -58,6 +58,7 @@ class Login extends React.Component {
           <input
             type='password'
             id='login-password'
+            className='user-input'
             name='password'
             placeholder='password'
             required

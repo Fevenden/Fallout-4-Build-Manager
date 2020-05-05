@@ -2,7 +2,7 @@ import React from 'react'
 import Build from '../Build/Build'
 import Context from '../../context/context'
 import BuildTechApiService from '../../services/build_tech-api-services'
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import './ViewBuild.css'
 
 class ViewBuild extends React.Component {
@@ -46,7 +46,7 @@ class ViewBuild extends React.Component {
   renderBuild() {
     const { build } = this.context
     return (
-      <Build build={build}/>
+      <Build build={build} perks={this.context.perks}/>
     )
   }
 
@@ -64,8 +64,8 @@ class ViewBuild extends React.Component {
       <section className='container box'>
         <div>
           {render}
-          <button onClick={e => this.backClick(e)}>Back</button>
-          <button onClick={e => this.onClickDelete(e)}>Delete</button>
+          <button className='buttonish' onClick={e => this.backClick(e)}>Back</button>
+          <button className='buttonish' onClick={e => this.onClickDelete(e)}>Delete</button>
         </div>
       </section>
     )

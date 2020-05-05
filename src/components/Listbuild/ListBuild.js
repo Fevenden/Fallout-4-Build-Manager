@@ -14,6 +14,13 @@ export default class ListBuild extends React.Component {
       .catch(err => this.context.setError(err.error))
   }
 
+  onClickDelete(e, buildId) {
+    e.preventDefault()
+    BuildTechApiService.deleteBuild(buildId)
+      .then(this.context.deleteBuild(buildId))
+      .catch(err => this.context.setError(err.error))
+  }
+
   render() {
     const {builds = []} = this.context
     return (
@@ -28,12 +35,14 @@ export default class ListBuild extends React.Component {
             ? <p>You dont have any saved builds!<br/> Create a new One!</p>
             : builds.map(build => {
               return (
-                <Link className='buildLink' to={`/builds/${build.id}`}>
-                  <li key={`${build.id}`} className='box'>
-                    <h3> {build.title}</h3>
-                    <p>{build.description}</p>
-                  </li>
-                </Link>
+                <li key={`${build.id}`} className='box'>
+                  <h3> {build.title}</h3>
+                  <p>{build.description}</p>
+                  <div>
+                    <Link to={`/builds/${build.id}`} className='buttonish'>View</Link>
+                    <button className='buttonish' onClick={e => this.onClickDelete(e, build.id)}>Delete</button>
+                  </div>
+                </li>
               )
           })}
         </ul>

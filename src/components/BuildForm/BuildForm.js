@@ -192,12 +192,16 @@ class BuildForm extends React.Component {
     active.classList.add('active')
   }
 
-  toggleTooltip = (e, perk) => {
-    const tooltip = document.getElementById(`${perk}-tooltip`)
+  toggleTooltip = (e, item) => {
+    const tooltip = document.getElementById(`${item}-tooltip`)
 
     tooltip.classList.contains('hidden')
       ? tooltip.classList.remove('hidden')
       : tooltip.classList.add('hidden')
+  }
+
+  componentDidMount() {
+    document.getElementById('strength-tab').click()
   }
 
   render() {
@@ -232,7 +236,7 @@ class BuildForm extends React.Component {
           <p>SPECIAL Points: {this.state.points}</p>
           <p>Required Level: {this.state.required_level}</p>
             <legend>SPECIAL</legend>
-            <StatInputs state={this.state} decreaseStat={this.decreaseStat} increaseStat={this.increaseStat}/>
+            <StatInputs state={this.state} decreaseStat={this.decreaseStat} increaseStat={this.increaseStat} toggleTooltip={this.toggleTooltip}/>
           </fieldset>
           <fieldset id='perks' className='box'>
             <legend>Perks</legend>
@@ -240,7 +244,7 @@ class BuildForm extends React.Component {
               {
                 this.context.perks.map(p => {
                   return (
-                    <button className='statheader buttonish' onClick={e => this.toggleStatPerks(e, p.stat)}>{p.stat.substring(0, 1)}</button>
+                    <button id={`${p.stat}-tab`}className='statheader buttonish' onClick={e => this.toggleStatPerks(e, p.stat)}>{p.stat.substring(0, 1)}</button>
                   )
                 })
               }
@@ -255,7 +259,6 @@ class BuildForm extends React.Component {
             <button className='buttonish' type='submit'>Create Build</button>
           </div>
         </form>
-
       </section>
     )
   }
