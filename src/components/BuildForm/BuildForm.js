@@ -200,10 +200,6 @@ class BuildForm extends React.Component {
       : tooltip.classList.add('hidden')
   }
 
-  componentDidMount() {
-    document.getElementById('strength-tab').click()
-  }
-
   render() {
     return (
       <section className='box'>
@@ -252,11 +248,17 @@ class BuildForm extends React.Component {
             <div className='tab-bar'>
               {
                 this.context.perks.map(p => {
-                  return (
-                    <button id={`${p.stat}-tab`}className='statheader buttonish' onClick={e => this.toggleStatPerks(e, p.stat)}>{p.stat.substring(0, 1)}</button>
+                  if(p.stat === 'strength') {
+                    return (
+                      <button id={`${p.stat}-tab`}className='statheader buttonish active' onClick={e => this.toggleStatPerks(e, p.stat)}>{p.stat.substring(0, 1)}</button>
                     )
-                  })
-                }
+                  } else {
+                    return (
+                      <button id={`${p.stat}-tab`}className='statheader buttonish' onClick={e => this.toggleStatPerks(e, p.stat)}>{p.stat.substring(0, 1)}</button>
+                    )
+                  }
+                })
+              }
             </div>
             <div className='perks-container'>
               <PerkInputs state={this.state} perks={this.context.perks} updatePerks={this.updatePerks} toggleStatPerks={this.toggleStatPerks} toggleTooltip={this.toggleTooltip}/>

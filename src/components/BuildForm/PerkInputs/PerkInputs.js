@@ -9,7 +9,14 @@ function PerkInputs(props) {
     )[0].value
 
     return (
-      <div className='perkfield hidden' id={`${stat.stat}-perks`}>
+      <div 
+        className={
+          stat.stat === 'strength'
+            ? 'perkfield'
+            : 'perkfield hidden'
+        } 
+        id={`${stat.stat}-perks`}
+      >
         {stat.perks.map(perk => {
           return (
             <div key={perk.name} className='perk-inputs'>
