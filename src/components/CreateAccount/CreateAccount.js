@@ -50,6 +50,7 @@ class CreatAccount extends React.Component {
           <label htmlFor='full_name'>Full Name:</label>
           <input
             type='text'
+            className='user-input'
             id='full_name'
             name= 'full_name'
             placeholder='Full Name'
@@ -59,6 +60,7 @@ class CreatAccount extends React.Component {
           <label htmlFor='create-username'>Create a Username:</label>
           <input
             type='text'
+            className='user-input'
             id='create-username'
             name='username'
             placeholder='Username'
@@ -68,6 +70,7 @@ class CreatAccount extends React.Component {
           <label htmlFor='email'>Email:</label>
           <input
             type='email'
+            className='user-input'
             id='email'
             name='email'
             placeholder='youremail@email.com'
@@ -77,6 +80,7 @@ class CreatAccount extends React.Component {
           <label htmlFor='password'>Password:</label>
           <input
             type='password'
+            className='user-input'
             id='password'
             name='passwword'
             placeholder='Password'
@@ -86,6 +90,7 @@ class CreatAccount extends React.Component {
           <label htmlFor='verify password'>Re-enter Password:</label>
           <input
             type='password'
+            className='user-input'
             id='verify-password'
             name='matchPassword'
             placeholder='Re-enter password'

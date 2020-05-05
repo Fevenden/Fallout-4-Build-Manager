@@ -1,3 +1,38 @@
 .build-box ul {
     padding: 0;
 }
+
+li {
+  list-style: none;
+}
+
+.buildPerkList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.buildPerkList .perkImg {
+  width: 125px;
+}
+
+.activePerk {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.perkLabel {
+  margin: 0;
+}
+
+.buildStats {
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 613px) {
+  .buildPerkList .perkImg {
+    width: 200px;
+  }
+}

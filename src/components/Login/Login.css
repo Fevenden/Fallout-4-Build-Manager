@@ -18,3 +18,7 @@
 .error {
   max-width: 70%
 }
+
+.demo.box {
+  width: 250px
+}

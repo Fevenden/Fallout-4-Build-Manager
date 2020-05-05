@@ -3,13 +3,13 @@ import './Build.css'
 
 export default function Build(props) {
   const {title, description, stats, required_level} = props.build
-  console.log(props.perks)
 
   let perks = []
 
   stats.forEach(s => {
+    const statPerks = props.perks.filter(p => p.stat === s.title)
     if (s.perks.length > 0) {
-        return s.perks.map(p => perks.push(p))
+      return s.perks.map(p => perks.push(p))
     }
   })
 
@@ -19,12 +19,18 @@ export default function Build(props) {
     }
 
     return (
-      <ul>
+      <ul className='buildPerkList'>
         {
           stat.perks.map(p => {
+            const perkImg = props.perks.filter(pe => pe.stat === p.stat_title).map(perks => 
+              perks.perks.filter(perk => perk.name === p.title)[0].img
+            )
+
             return (
-              <li>
-                <p>{p.title} Rank {p.perk_rank}: {p.perk_description}</p>
+              <li className='activePerk'>
+                <img src={perkImg} alt={`${p.title} icon`} className='perkImg' />
+                <p className='perkLabel'>{p.title}</p>
+                <p className='perkLabel'>rank: {p.perk_rank}</p>
               </li>
             )
           })
@@ -35,11 +41,13 @@ export default function Build(props) {
 
   function renderStatFields() {
     return (
-      <ul>
+      <ul className='buildStats'>
         {stats.map(s => {
           return (
             <li key={s.id}>
-              <h2>{s.title.charAt(0).toUpperCase() + s.title.slice(1)}: <span>{s.stat_value}</span></h2>
+              <div>
+                <h2>{s.title.charAt(0).toUpperCase() + s.title.slice(1)}: <span>{s.stat_value}</span></h2>
+              </div>
               {renderPerkFields(s)}
             </li>
           )

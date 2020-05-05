@@ -40,6 +40,7 @@ class Login extends React.Component {
 
   render() {
     return (
+      <>
       <section className='box'>
         <h2>Login</h2>
         <p className='error'>{this.state.error}</p>
@@ -70,6 +71,15 @@ class Login extends React.Component {
           </div>
         </form>
       </section>
+      <section className='demo box'>
+        <h2>Demo User</h2>
+        <p>
+          Username: Demo 
+          <br/>
+          Password: Password1*
+        </p>
+      </section>
+      </>
     )
   }
 }

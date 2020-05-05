@@ -208,36 +208,45 @@ class BuildForm extends React.Component {
     return (
       <section className='box'>
         <h2>Create Build</h2>
+          
         <p>Welcome to the build page! Here you can create a custom build and save it to your account</p>
         <p>Please enjoy your time with BuildTech. A better future, online!</p>
         <form id='build-form' onSubmit={this.submitBuild}>
-          <label htmlFor='title'>Build Title:</label>
-          <input
-            className='user-input'
-            type='text'
-            id='title'
-            placeholder='Title'
-            defaultValue=''
-            onChange={e => this.updateTitle(e.target.value)}
-            name='title'
-            required
-          />
-          <label htmlFor='description'>Description:</label>
-          <textarea
-            className='user-input'
-            id='description'
-            placeholder='describe your build'
-            onChange={e => this.updateDescription(e.target.value)}
-            form='build-form'
-            rows='6'
-            cols='50'
-          />
-          <fieldset className='box' id='stats'>
-          <p>SPECIAL Points: {this.state.points}</p>
-          <p>Required Level: {this.state.required_level}</p>
-            <legend>SPECIAL</legend>
-            <StatInputs state={this.state} decreaseStat={this.decreaseStat} increaseStat={this.increaseStat} toggleTooltip={this.toggleTooltip}/>
-          </fieldset>
+          <div className='styleField'>
+            <label htmlFor='title'>Build Title:</label>
+            <input
+              className='user-input'
+              type='text'
+              id='title'
+              placeholder='Title'
+              defaultValue=''
+              onChange={e => this.updateTitle(e.target.value)}
+              name='title'
+              required
+              />
+            <label htmlFor='description'>Description:</label>
+            <textarea
+              className='user-input'
+              id='description'
+              placeholder='describe your build'
+              onChange={e => this.updateDescription(e.target.value)}
+              form='build-form'
+              rows='6'
+              cols='50'
+              />
+            <fieldset className='box' id='stats'>
+            <p>SPECIAL Points: {this.state.points}</p>
+            <p>Required Level: {this.state.required_level}</p>
+              <legend>SPECIAL</legend>
+              <StatInputs state={this.state} decreaseStat={this.decreaseStat} increaseStat={this.increaseStat} toggleTooltip={this.toggleTooltip}/>
+            </fieldset>
+          <div>
+            <p>{this.context.error}</p>
+            <button className='buttonish' onClick={e => this.clickCancel(e)}>Cancel</button>
+            <button className='buttonish' type='submit'>Create Build</button>
+          </div>
+          </div>
+          <div className='styleField'>
           <fieldset id='perks' className='box'>
             <legend>Perks</legend>
             <div className='tab-bar'>
@@ -245,18 +254,14 @@ class BuildForm extends React.Component {
                 this.context.perks.map(p => {
                   return (
                     <button id={`${p.stat}-tab`}className='statheader buttonish' onClick={e => this.toggleStatPerks(e, p.stat)}>{p.stat.substring(0, 1)}</button>
-                  )
-                })
-              }
+                    )
+                  })
+                }
             </div>
             <div className='perks-container'>
               <PerkInputs state={this.state} perks={this.context.perks} updatePerks={this.updatePerks} toggleStatPerks={this.toggleStatPerks} toggleTooltip={this.toggleTooltip}/>
             </div>
           </fieldset>
-          <div>
-            <p>{this.context.error}</p>
-            <button className='buttonish' onClick={e => this.clickCancel(e)}>Cancel</button>
-            <button className='buttonish' type='submit'>Create Build</button>
           </div>
         </form>
       </section>
