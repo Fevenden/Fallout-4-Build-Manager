@@ -31,6 +31,13 @@ li {
   flex-direction: column;
 }
 
+.statValue {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @media only screen and (min-width: 613px) {
   .buildPerkList .perkImg {
     width: 200px;

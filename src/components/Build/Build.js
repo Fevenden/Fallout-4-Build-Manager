@@ -45,7 +45,7 @@ export default function Build(props) {
         {stats.map(s => {
           return (
             <li key={s.id}>
-              <div>
+              <div className='statValue'>
                 <h2>{s.title.charAt(0).toUpperCase() + s.title.slice(1)}: <span>{s.stat_value}</span></h2>
               </div>
               {renderPerkFields(s)}
@@ -57,14 +57,14 @@ export default function Build(props) {
   }
 
   return (
-    <>
+    <section className='container'>
       <h2>{title}</h2>
       <p>Required Level: {required_level}</p>
       <p>{description}</p>
       <div className='build-box'>
         {renderStatFields()}
       </div>
-    </>
+    </section>
   )
 }
 

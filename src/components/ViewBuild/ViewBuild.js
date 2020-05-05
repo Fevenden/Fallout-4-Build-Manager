@@ -61,13 +61,13 @@ class ViewBuild extends React.Component {
       render = this.renderBuild()
     }
     return (
-      <section className='container box'>
+      <div className='box'>
+        {render}
         <div>
-          {render}
           <button className='buttonish' onClick={e => this.backClick(e)}>Back</button>
           <button className='buttonish' onClick={e => this.onClickDelete(e)}>Delete</button>
         </div>
-      </section>
+      </div>
     )
   }
 }

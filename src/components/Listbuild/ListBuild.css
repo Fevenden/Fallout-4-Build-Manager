@@ -17,6 +17,10 @@
   padding: 0;
 }
 
+li.box {
+  min-width: 300px;
+}
+
 .users-builds {
   display: flex;
   flex-direction: column;
