@@ -61,7 +61,7 @@ label {
 }
 
 label.disabled, .perkImg.disabled, .perkInput:disabled {
-  opacity: 50%
+  opacity: 0.5;
 }
 
 .perkfield {
