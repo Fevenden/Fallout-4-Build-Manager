@@ -1,5 +1,4 @@
 import React from 'react'
-// import img from '../../../images/strength/StrLVL1.png'
 import './PerkInputs.css'
 
 function PerkInputs(props) {
