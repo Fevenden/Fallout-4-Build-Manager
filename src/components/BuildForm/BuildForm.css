@@ -60,10 +60,6 @@
   transition: color 300ms, background-color 300ms, border 300ms, box-shadow 300ms;
 }
 
-#perks {
-  width: 350px;
-}
-
 .styleField {
   display: flex;
   flex-direction: column;
