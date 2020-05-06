@@ -26,7 +26,7 @@ After you are logged in you will see your builds page. Here you can view and man
 
 ## Create Build Page
 
-![createBuildPage](https://github.com/f3ve/Build-Tech-Client/tree/master/readMeImgs)
+![createBuildPage](https://github.com/f3ve/Build-Tech-Client/blob/master/readMeImgs/createbuildpage.png)
 
 The Create Build page is where you can create and save your builds. When you open the build page you will see a place to enter a title and a place to enter a description. There are 2 primary sections of the build Page: the Special inputs and the Perk inputs. 
 
