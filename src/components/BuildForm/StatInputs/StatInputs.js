@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import './StatInputs.css'
 
 function StatInputs(props) {
@@ -15,8 +15,8 @@ function StatInputs(props) {
     }
 
     return (
-      <div>
-        <div className='stat-input' key={stat.index}>
+      <Fragment key={`${stat.title}-fragment`}>
+        <div className='stat-input'>
           <span className='buttonish' onClick={e => props.toggleTooltip(e, stat.title)}>?</span>
           <div id={`${stat.title}-tooltip`} className='tooltiptext hidden'>
             <p>{stat.des}</p>
@@ -31,7 +31,7 @@ function StatInputs(props) {
             <button className='stat-button buttonish' onClick={e => handleIncrease(e)} disabled={stat.value === 10}>+</button>
           </div>
         </div>
-      </div>
+      </Fragment>
     )
   })
 }

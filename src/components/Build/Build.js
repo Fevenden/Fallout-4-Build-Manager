@@ -4,15 +4,6 @@ import './Build.css'
 export default function Build(props) {
   const {title, description, stats, required_level} = props.build
 
-  let perks = []
-
-  stats.forEach(s => {
-    const statPerks = props.perks.filter(p => p.stat === s.title)
-    if (s.perks.length > 0) {
-      return s.perks.map(p => perks.push(p))
-    }
-  })
-
   function renderPerkFields(stat) {
     if (stat.perks.length === 0) {
       return (<p>No active Perks to show!</p>)
@@ -27,7 +18,7 @@ export default function Build(props) {
             )
 
             return (
-              <li className='activePerk'>
+              <li className='activePerk' key={p.id}>
                 <img src={perkImg} alt={`${p.title} icon`} className='perkImg' />
                 <p className='perkLabel'>{p.title}</p>
                 <p className='perkLabel'>rank: {p.perk_rank}</p>

@@ -16,6 +16,7 @@ function PerkInputs(props) {
             : 'perkfield hidden'
         } 
         id={`${stat.stat}-perks`}
+        key={`${stat.stat}-perks`}
       >
         {stat.perks.map(perk => {
           return (
@@ -33,7 +34,7 @@ function PerkInputs(props) {
               <div id={`${perk.name}-tooltip`} className='tooltiptext hidden'>{
                   perk.ranked.map(rank => {
                     return (
-                        <p>Rank {rank.rank}: {rank.description}</p>
+                        <p key={`${perk.name}-${rank.rank}`}>Rank {rank.rank}: {rank.description}</p>
                     )
                   })}
                   <button type='button' className='buttonish' onClick={e => props.toggleTooltip(e, perk.name)}>Close</button>
@@ -60,7 +61,7 @@ function PerkInputs(props) {
                 <option id={`${perk.name}1`} value='0'>Choose a rank</option>
                 {perk.ranked.map(rank => {
                   return (
-                  <option value={rank.rank}>Rank {rank.rank}</option>
+                  <option key={`${perk.name}-option-${rank.rank}`} value={rank.rank}>Rank {rank.rank}</option>
                   )
                 })}
               </select>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import './Login.css'
 import AuthApiService from '../../services/auth-api-services'
 import Context from '../../context/context'
@@ -40,46 +40,46 @@ class Login extends React.Component {
 
   render() {
     return (
-      <>
-      <section className='box'>
-        <h2>Login</h2>
-        <p className='error'>{this.state.error}</p>
-        <form id='login-form' onSubmit={this.handleLogin}>
-          <label htmlFor='login-username'>Username</label>
-          <input
-            type='text'
-            className='user-input'
-            id='login-username'
-            name='username'
-            placeholder='Username'
-            required
-          />
+      <Fragment>
+        <section className='box'>
+          <h2>Login</h2>
+          <p className='error'>{this.state.error}</p>
+          <form id='login-form' onSubmit={this.handleLogin}>
+            <label htmlFor='login-username'>Username</label>
+            <input
+              type='text'
+              className='user-input'
+              id='login-username'
+              name='username'
+              placeholder='Username'
+              required
+            />
 
-          <label htmlFor='login-password'>Password</label>
-          <input
-            type='password'
-            id='login-password'
-            className='user-input'
-            name='password'
-            placeholder='password'
-            required
-          />
+            <label htmlFor='login-password'>Password</label>
+            <input
+              type='password'
+              id='login-password'
+              className='user-input'
+              name='password'
+              placeholder='password'
+              required
+            />
 
-          <div>
-            <button className='buttonish' onClick={e => this.clickCancel(e)}>Cancel</button>
-            <button className='buttonish' type='submit'>Login</button>
-          </div>
-        </form>
-      </section>
-      <section className='demo box'>
-        <h2>Demo User</h2>
-        <p>
-          Username: Demo 
-          <br/>
-          Password: Password1*
-        </p>
-      </section>
-      </>
+            <div>
+              <button className='buttonish' onClick={e => this.clickCancel(e)}>Cancel</button>
+              <button className='buttonish' type='submit'>Login</button>
+            </div>
+          </form>
+        </section>
+        <section className='demo box'>
+          <h2>Demo User</h2>
+          <p>
+            Username: Demo 
+            <br/>
+            Password: Password1*
+          </p>
+        </section>
+      </Fragment>
     )
   }
 }

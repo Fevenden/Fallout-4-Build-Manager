@@ -1565,7 +1565,7 @@ export default [
           {
               rank: 8,
               name: 'Quick Hands',
-              img: aglvl9,
+              img: aglvl8,
               ranks: 3,
               ranked: [
                   {

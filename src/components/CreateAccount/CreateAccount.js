@@ -87,7 +87,7 @@ class CreatAccount extends React.Component {
             required
           />
 
-          <label htmlFor='verify password'>Re-enter Password:</label>
+          <label htmlFor='verify-password'>Re-enter Password:</label>
           <input
             type='password'
             className='user-input'

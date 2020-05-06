@@ -236,11 +236,11 @@ class BuildForm extends React.Component {
               <legend>SPECIAL</legend>
               <StatInputs state={this.state} decreaseStat={this.decreaseStat} increaseStat={this.increaseStat} toggleTooltip={this.toggleTooltip}/>
             </fieldset>
-          <div>
-            <p>{this.context.error}</p>
-            <button className='buttonish' onClick={e => this.clickCancel(e)}>Cancel</button>
-            <button className='buttonish' type='submit'>Create Build</button>
-          </div>
+            <div>
+              <p>{this.context.error}</p>
+              <button className='buttonish' onClick={e => this.clickCancel(e)}>Cancel</button>
+              <button className='buttonish' type='submit'>Create Build</button>
+            </div>
           </div>
           <div className='styleField'>
           <fieldset id='perks' className='box'>
@@ -248,21 +248,26 @@ class BuildForm extends React.Component {
             <div className='tab-bar'>
               {
                 this.context.perks.map(p => {
-                  if(p.stat === 'strength') {
-                    return (
-                      <button id={`${p.stat}-tab`}className='statheader buttonish active' onClick={e => this.toggleStatPerks(e, p.stat)}>{p.stat.substring(0, 1)}</button>
-                    )
-                  } else {
-                    return (
-                      <button id={`${p.stat}-tab`}className='statheader buttonish' onClick={e => this.toggleStatPerks(e, p.stat)}>{p.stat.substring(0, 1)}</button>
-                    )
-                  }
+                  return (
+                    <button 
+                      id={`${p.stat}-tab`} 
+                      key={`${p.stat}-tab`} 
+                      className={
+                        p.stat === 'strength'
+                          ? 'statheader buttonish active'
+                          : 'statheader buttonish'
+                      }
+                      onClick={e => this.toggleStatPerks(e, p.stat)}
+                    >
+                      {p.stat.substring(0, 1)}
+                    </button>
+                  )
                 })
               }
             </div>
-            <div className='perks-container'>
+            <section className='perks-container'>
               <PerkInputs state={this.state} perks={this.context.perks} updatePerks={this.updatePerks} toggleStatPerks={this.toggleStatPerks} toggleTooltip={this.toggleTooltip}/>
-            </div>
+            </section>
           </fieldset>
           </div>
         </form>
