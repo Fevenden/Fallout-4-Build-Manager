@@ -2,7 +2,7 @@
 
 BuildTech is a Fallout 4 build manager
 
-Live [App](https://fallout-4-build-manager.now.sh/)
+Live [App](https://build-tech.now.sh/)
 
 ## Motivation
 
@@ -10,7 +10,7 @@ Fallout 4's character creation does a poor job of telling you exactly what perks
 
 ## Technology used
 
-BuildTech was built using React, Nodejs, Express, and PostgreSQL. It is a Full-Stack web app and you can view the API Repo at this [Link](https://github.com/f3ve/build-tech-api)
+BuildTech was built using React, Nodejs, Express, and PostgreSQL. It is a Full-Stack web app and you can view the API Repo at this [Link](https://github.com/f3ve/build-tech-api).
 
 ## Logging in
 
