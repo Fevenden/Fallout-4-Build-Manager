@@ -67,6 +67,11 @@
   max-width: 90%;
 }
 
+#perks {
+  max-width: 100%;
+  min-width: 100%;
+}
+
 @media only screen and (min-width: 1000px) {
   .styleField {
     padding: 10px;
@@ -86,6 +91,11 @@
 
   #stats {
     width: 50%
+  }
+
+  #perks {
+    min-width: 300px;
+    max-width: 300px;
   }
 
   .stat-input {

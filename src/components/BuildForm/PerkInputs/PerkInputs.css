@@ -44,7 +44,6 @@ option {
 
 .hidden{
   display: none;
-  animation: ease-in 2s;
 }
 
 .tooltip:hover .tooltiptext {
@@ -77,4 +76,12 @@ label.disabled, .perkImg.disabled, .perkInput:disabled {
   width: 0;
   margin: 0;
   height: 0;
+}
+
+.perkfield.hidden img, .perkfield.hidden select, .perkfield.hidden label{
+  display: none;
+}
+
+.perkfield img, .perkfield select, .perkfield label {
+  transition: width 300ms, height 300ms, margin 300ms, padding 300ms;
 }
