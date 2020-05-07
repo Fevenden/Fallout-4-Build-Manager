@@ -66,8 +66,8 @@ class Login extends React.Component {
             />
 
             <div>
-              <button className='buttonish' onClick={e => this.clickCancel(e)}>Cancel</button>
               <button className='buttonish' type='submit'>Login</button>
+              <button className='buttonish' onClick={e => this.clickCancel(e)}>Cancel</button>
             </div>
           </form>
         </section>

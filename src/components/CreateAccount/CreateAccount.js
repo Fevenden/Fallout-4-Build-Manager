@@ -98,10 +98,10 @@ class CreatAccount extends React.Component {
           />
 
           <div>
-            <button className='buttonish' onClick={e => this.handleClickCancel(e)}>Cancel</button>
             <button className='buttonish' type='submit'>
               Create Account
             </button>
+            <button className='buttonish' onClick={e => this.handleClickCancel(e)}>Cancel</button>
           </div>
         </form>
       </section>
